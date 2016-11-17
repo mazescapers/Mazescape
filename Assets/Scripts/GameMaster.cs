@@ -101,7 +101,7 @@ public class GameMaster : NetworkBehaviour {
                 }
             }
         }
-
+		NetworkServer.SpawnObjects ();
 		PlaceBeacon (START_X + 1, START_Z + 1);
 
 
@@ -201,6 +201,7 @@ public class GameMaster : NetworkBehaviour {
 	public void PlaceBeacon(float x, float z) {
 		Beacon.SetActive (true);
 		GameObject newBeacon = (GameObject) Instantiate (Beacon, new Vector3(x, 0, z), Quaternion.identity);
+		NetworkServer.Spawn (newBeacon);
 		newBeacon.SetActive (true);
 		newBeacon.GetComponent<ParticleSystem> ().Play ();
 	}
