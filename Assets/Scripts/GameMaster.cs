@@ -13,6 +13,8 @@ public class GameMaster : MonoBehaviour {
     public int END_X;
     public int END_Z;
 
+	public GameObject Beacon;
+
     public Color[] player_color;
 
     public static int size_x;
@@ -92,6 +94,8 @@ public class GameMaster : MonoBehaviour {
                 }
             }
         }
+
+		PlaceBeacon (START_X + 1, START_Z + 1);
 
 
     }
@@ -181,9 +185,16 @@ public class GameMaster : MonoBehaviour {
         }
     }
 
+	public void PlaceBeacon(float x, float z) {
+		Beacon.SetActive (true);
+		GameObject newBeacon = (GameObject) Instantiate (Beacon, new Vector3(x, 0, z), Quaternion.identity);
+		newBeacon.SetActive (true);
+		newBeacon.GetComponent<ParticleSystem> ().Play ();
+	}
+
     // Use this for initialization
     void Start () {
-	
+		
 	}
 	
 	// Update is called once per frame
