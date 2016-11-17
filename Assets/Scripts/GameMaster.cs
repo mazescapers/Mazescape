@@ -33,7 +33,7 @@ public class GameMaster : NetworkBehaviour {
 
     public override void OnStartServer()
     {
-        //Debug.Log("ff");
+        Debug.Log("ff");
         player_color = new Color[3];
         player_color[0] = Color.red;
         player_color[1] = Color.blue;
