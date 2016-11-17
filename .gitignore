@@ -1,2 +1,29 @@
-Assets/GoogleVR/Scripts/GvrViewer.cs
-Assets/GoogleVR/Scripts/GvrViewer.cs
+Library/
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+Temp/
+ExportedObj/
+obj/
+*.svd
+*.userprefs
+/*.csproj
+*.pidb
+*.suo
+/*.sln
+*.user
+*.unityproj
+*.booproj
+
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+*.meta
+Thumbs.db

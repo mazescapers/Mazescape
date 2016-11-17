@@ -14,6 +14,8 @@ public class GameMaster : NetworkBehaviour {
     public int END_X;
     public int END_Z;
 
+	public GameObject Beacon;
+
     public Color[] player_color;
 
     public static int size_x;
@@ -31,7 +33,7 @@ public class GameMaster : NetworkBehaviour {
 
     public override void OnStartServer()
     {
-        //Debug.Log("ff");
+        Debug.Log("ff");
         player_color = new Color[3];
         player_color[0] = Color.red;
         player_color[1] = Color.blue;
@@ -99,6 +101,8 @@ public class GameMaster : NetworkBehaviour {
                 }
             }
         }
+
+		PlaceBeacon (START_X + 1, START_Z + 1);
 
 
     }
@@ -194,9 +198,16 @@ public class GameMaster : NetworkBehaviour {
         }
     }
 
+	public void PlaceBeacon(float x, float z) {
+		Beacon.SetActive (true);
+		GameObject newBeacon = (GameObject) Instantiate (Beacon, new Vector3(x, 0, z), Quaternion.identity);
+		newBeacon.SetActive (true);
+		newBeacon.GetComponent<ParticleSystem> ().Play ();
+	}
+
     // Use this for initialization
     void Start () {
-	
+		
 	}
 	
 	// Update is called once per frame
