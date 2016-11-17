@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
-public class Cell : MonoBehaviour
+
+public class Cell : NetworkBehaviour
 {
     public int x;
     public int z;
@@ -12,6 +14,9 @@ public class Cell : MonoBehaviour
     public GameObject S;
     public GameObject W;
     public GameObject floor;
+
+    [SyncVar]
+    public Color floorCol;  
 
     public void removeWall(char direction)
     {

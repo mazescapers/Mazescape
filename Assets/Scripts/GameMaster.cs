@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections.Generic;
 
-public class GameMaster : MonoBehaviour {
+public class GameMaster : NetworkBehaviour {
 
     public int MAZE_LENGTH;
     public int MAZE_WIDTH;
@@ -20,7 +21,7 @@ public class GameMaster : MonoBehaviour {
     public static float wall_width;
 
     GameObject Maze;
-    public Cell CellBase;
+    public GameObject CellBase;
     public static Cell[][] maze;
     public static bool[][] visited;
     public static bool[][] walked;
@@ -28,8 +29,9 @@ public class GameMaster : MonoBehaviour {
     public static Stack<int[]> path;
     public static List<int[]> dead_ends;
 
-    void Awake()
+    public override void OnStartServer()
     {
+        //Debug.Log("ff");
         player_color = new Color[3];
         player_color[0] = Color.red;
         player_color[1] = Color.blue;
@@ -40,6 +42,7 @@ public class GameMaster : MonoBehaviour {
         wall_width = WALL_WIDTH;
 
         Maze = new GameObject("Maze");
+//        NetworkServer.Spawn(Maze);
         maze = new Cell[size_x][];
 
         visited = new bool[size_x][];
@@ -52,9 +55,11 @@ public class GameMaster : MonoBehaviour {
             walked[i] = new bool[size_z];
             for (int j = 0; j < size_z; j++)
             {
-                CellBase.gameObject.SetActive(true);
+               // CellBase.gameObject.SetActive(true);
                 Vector3 pos = new Vector3(i, 0, j);
-                maze[i][j] = (Cell)Instantiate(CellBase, pos, Quaternion.identity, Maze.transform);
+                var cel = (GameObject)Instantiate(CellBase, pos, Quaternion.identity, Maze.transform);
+                NetworkServer.Spawn(cel);
+                maze[i][j] = cel.GetComponent<Cell>();
                 maze[i][j].x = i;
                 maze[i][j].z = j;
                 visited[i][j] = false;
@@ -62,13 +67,15 @@ public class GameMaster : MonoBehaviour {
             }
         }
 
-        CellBase.gameObject.SetActive(false);
+        //CellBase.gameObject.SetActive(false);
 
         dfsMazeGen(START_X, START_Z);
 
         // Mark the start and exit
-        maze[START_X][START_Z].floor.GetComponent<Renderer>().material.color = Color.green;
-        maze[END_X][END_Z].floor.GetComponent<Renderer>().material.color = Color.red;
+        RpcPaint(maze[START_X][START_Z].floor, Color.green);
+        RpcPaint(maze[END_X][END_Z].floor, Color.red);
+  //      maze[START_X][START_Z].floor.GetComponent<Renderer>().material.color = Color.green;
+    //    maze[END_X][END_Z].floor.GetComponent<Renderer>().material.color = Color.red;
 
         // Find and mark the path from the start to the exit
         path = new Stack<int[]>();
@@ -94,6 +101,12 @@ public class GameMaster : MonoBehaviour {
         }
 
 
+    }
+
+    [ClientRpc]
+    void RpcPaint(GameObject obj, Color col)
+    {
+        obj.GetComponent<Renderer>().material.color = col;        // this is the line that actually makes the change in color happen
     }
 
     public void dfsMazeGen(int x, int z)
