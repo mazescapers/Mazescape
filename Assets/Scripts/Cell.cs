@@ -9,12 +9,19 @@ public class Cell : NetworkBehaviour
     public int z;
     public int wall_count;
 	[SyncVar]
+	public bool nEnabled = true;
     public GameObject N;
 	[SyncVar]
+	public bool eEnabled = true;
+
     public GameObject E;
 	[SyncVar]
+	public bool sEnabled = true;
+
     public GameObject S;
 	[SyncVar]
+	public bool wEnabled = true;
+
     public GameObject W;
 	[SyncVar]
     public GameObject floor;
@@ -22,8 +29,11 @@ public class Cell : NetworkBehaviour
     [SyncVar]
     public Color floorCol;  
 
-	[Command]
-    public void CmdRemoveWall(char direction)
+	void Start() {
+		
+	}
+
+    public void removeWall(char direction)
     {
 		GameObject d1 = null;
 		GameObject d2 = null;
@@ -32,10 +42,11 @@ public class Cell : NetworkBehaviour
             if (z < GameMaster.size_z - 1 && N.activeSelf)
             {
 				d1 = N;
-				d2 = GameMaster.maze [x] [z + 1].S;
-                N.SetActive(false);
+				nEnabled = false;
+				GameMaster.maze [x] [z + 1].sEnabled = false;
+                //N.SetActive(false);
                 wall_count--;
-                GameMaster.maze[x][z + 1].S.SetActive(false);
+                //GameMaster.maze[x][z + 1].S.SetActive(false);
                 GameMaster.maze[x][z + 1].wall_count--;
             }
         }
@@ -44,10 +55,11 @@ public class Cell : NetworkBehaviour
             if (x < GameMaster.size_x - 1 && E.activeSelf)
             {
 				d1 = E;
-				d2 = GameMaster.maze [x + 1] [z].W;
-                E.SetActive(false);
+				eEnabled = false;
+				GameMaster.maze [x + 1] [z].wEnabled = false;
+                ///E.SetActive(false);
                 wall_count--;
-                GameMaster.maze[x + 1][z].W.SetActive(false);
+                //GameMaster.maze[x + 1][z].W.SetActive(false);
                 GameMaster.maze[x + 1][z].wall_count--;
             }
         }
@@ -56,10 +68,11 @@ public class Cell : NetworkBehaviour
             if (z > 0 && S.activeSelf)
             {
 				d1 = S;
+				sEnabled = false;
 				d2 = GameMaster.maze [x] [z - 1].N;
-                S.SetActive(false);
+                //S.SetActive(false);
                 wall_count--;
-                GameMaster.maze[x][z - 1].N.SetActive(false);
+				GameMaster.maze [x] [z - 1].nEnabled = false;
                 GameMaster.maze[x][z - 1].wall_count--;
             }
         }
@@ -69,15 +82,25 @@ public class Cell : NetworkBehaviour
             {
 				d1 = W;
 				d2 = GameMaster.maze [x - 1] [z].E;
-                W.SetActive(false);
+				wEnabled = false;
+                //W.SetActive(false);
                 wall_count--;
-                GameMaster.maze[x - 1][z].E.SetActive(false);
+				GameMaster.maze [x - 1] [z].eEnabled = false;
                 GameMaster.maze[x - 1][z].wall_count--;
             }
         }
-		Destroy (d1);
-		Destroy (d2);
+		/*if (d1 != null && d2 != null) {
+			d1.transform.localScale = new Vector3 (0, 0, 0);
+			d2.transform.localScale = new Vector3 (0, 0, 0);
+		}*/
     }
+
+	public void Update() {
+		S.SetActive(sEnabled);
+		N.SetActive (nEnabled);
+		W.SetActive (wEnabled);
+		E.SetActive (eEnabled);
+	}
 
     public bool has_wall(char direction)
     {

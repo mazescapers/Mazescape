@@ -60,8 +60,9 @@ public class GameMaster : NetworkBehaviour {
                // CellBase.gameObject.SetActive(true);
                 Vector3 pos = new Vector3(i, 0, j);
                 var cel = (GameObject)Instantiate(CellBase, pos, Quaternion.identity, Maze.transform);
-                NetworkServer.Spawn(cel);
+				NetworkServer.Spawn (cel);
                 maze[i][j] = cel.GetComponent<Cell>();
+				Cell c = maze [i] [j];
                 maze[i][j].x = i;
                 maze[i][j].z = j;
                 visited[i][j] = false;
@@ -82,7 +83,7 @@ public class GameMaster : NetworkBehaviour {
         // Find and mark the path from the start to the exit
         path = new Stack<int[]>();
         walk(START_X, START_Z);
-        markPath(path);
+        //markPath(path);
 
         // Find dead ends
         dead_ends = new List<int[]>();
@@ -101,8 +102,7 @@ public class GameMaster : NetworkBehaviour {
                 }
             }
         }
-
-		PlaceBeacon (START_X + 1, START_Z + 1);
+			
 		NetworkServer.Spawn (Maze);
 
 
@@ -142,7 +142,8 @@ public class GameMaster : NetworkBehaviour {
                 next_x = Mathf.Max(0, x - 1);
             if (!visited[next_x][next_z])
             {
-                maze[x][z].CmdRemoveWall(directions[i]);
+                maze[x][z].removeWall(directions[i]);
+
                 dfsMazeGen(next_x, next_z);
             }
         }

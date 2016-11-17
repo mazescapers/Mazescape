@@ -15,6 +15,9 @@ public class PlayerController : NetworkBehaviour
             return;
         }
 
+		GameObject camera = GameObject.Find ("Camera");
+		camera.transform.position = transform.position;
+		camera.transform.rotation = transform.rotation;
         // Need be updated to work on Androod 
         float x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
         float z = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
@@ -27,6 +30,10 @@ public class PlayerController : NetworkBehaviour
             CmdPlaceBeacon();
         }
     }
+
+	void Start() {
+		transform.Translate (0, 2.0f, 0);
+	}
 
     [Command]
     private void CmdPlaceBeacon()
