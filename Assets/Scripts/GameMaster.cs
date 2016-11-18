@@ -22,7 +22,7 @@ public class GameMaster : NetworkBehaviour {
     public static int size_z;
     public static float wall_width;
 
-    GameObject Maze;
+    public GameObject Maze;
     public GameObject CellBase;
     public static Cell[][] maze;
     public static bool[][] visited;
@@ -32,7 +32,8 @@ public class GameMaster : NetworkBehaviour {
     public static List<int[]> dead_ends;
 
     public override void OnStartServer()
-    {
+	{
+		Maze = Instantiate (Maze);
         Debug.Log("ff");
         player_color = new Color[3];
         player_color[0] = Color.red;
@@ -43,7 +44,6 @@ public class GameMaster : NetworkBehaviour {
         size_z = MAZE_WIDTH;
         wall_width = WALL_WIDTH;
 
-        Maze = new GameObject("Maze");
 //        NetworkServer.Spawn(Maze);
         maze = new Cell[size_x][];
 
@@ -103,6 +103,7 @@ public class GameMaster : NetworkBehaviour {
         }
 
 		PlaceBeacon (START_X + 1, START_Z + 1);
+		NetworkServer.Spawn (Maze);
 
 
     }
@@ -141,7 +142,7 @@ public class GameMaster : NetworkBehaviour {
                 next_x = Mathf.Max(0, x - 1);
             if (!visited[next_x][next_z])
             {
-                maze[x][z].removeWall(directions[i]);
+                maze[x][z].CmdRemoveWall(directions[i]);
                 dfsMazeGen(next_x, next_z);
             }
         }
