@@ -17,7 +17,7 @@ public class Menu : MonoBehaviour {
 
 	private bool isLeaf, isRoot, isDisplayed;
 	private UnityEngine.UI.Text mText; // This menu's text object, if it has one.
-	private List<GameObject> submenuList; // Recursive submenu children.
+	private List<Transform> submenuList; // Recursive submenu children.
 	private Menu menuParent; // This menu's parent menu, if it has one.
 	private Color highlightColor, normalColor; // Colors for text.
 
@@ -33,7 +33,7 @@ public class Menu : MonoBehaviour {
 		isRoot = menuParent == null;
 		for (int i = 0; i < transform.childCount; i++) {
 			// Set up submenus from children
-			GameObject thisChild = transform.GetChild(i);
+			Transform thisChild = transform.GetChild(i);
 			Menu thisMenu = thisChild.GetComponent<Menu>();
 			// If the child has no Menu component, ignore it
 			if (thisMenu != null) {
@@ -97,7 +97,7 @@ public class Menu : MonoBehaviour {
 
 	// Closes all child menus.
 	void CloseMenuChildren() {
-		foreach (GameObject menuObj in submenuList) {
+		foreach (Transform menuObj in submenuList) {
 			// Get the child's menu
 			Menu thisMenu = menuObj.GetComponent<Menu>();
 			// If the child has text, hide it
@@ -108,7 +108,7 @@ public class Menu : MonoBehaviour {
 	// Hides all children, and their children, etc.
 	// Does not show/hide this menu.
 	void CloseMenuChildrenRecursively() {
-		foreach (GameObject menuObj in submenuList) {
+		foreach (Transform menuObj in submenuList) {
 			// Get the child's menu
 			Menu thisMenu = menuObj.GetComponent<Menu>();
 			// If the child has text, hide it
@@ -139,7 +139,7 @@ public class Menu : MonoBehaviour {
 
 	// Shows all children, and hides this menu
 	void OpenMenuChildren() {
-		foreach (GameObject menuObj in submenuList) {
+		foreach (Transform menuObj in submenuList) {
 			Menu thisMenu = menuObj.GetComponent<Menu>();
 			UnityEngine.UI.Text thisText = thisMenu.mText;
 			// If the child has text, display it
@@ -166,7 +166,7 @@ public class Menu : MonoBehaviour {
 	}
 
 	void UnhighlightText() {
-		mif (mText != null) {
+		if (mText != null) {
 			mText.color = normalColor;
 		}
 	}
