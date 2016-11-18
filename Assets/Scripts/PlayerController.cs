@@ -6,6 +6,8 @@ using System;
 public class PlayerController : NetworkBehaviour
 {
     public GameObject beaconPrefab;
+
+    [SyncVar]
     public static bool paused = false;
 
     // Update is called once per frame
