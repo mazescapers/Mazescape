@@ -14,13 +14,19 @@ public class PlayerController : NetworkBehaviour
         {
             return;
         }
+		if (true || Network.isClient ()) {
+			GameObject camera = GameObject.Find ("Camera");
+			camera.transform.position = transform.position + new Vector3(0.0f, 0.5f);
+			camera.transform.rotation = transform.rotation;
+		}
 
         // Need be updated to work on Androod 
         float x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
-        float z = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
+        float z = Input.GetAxis("Vertical") * Time.deltaTime * 300.0f;
 
         transform.Rotate(0, x, 0);
-        transform.Translate(0, 0, z);
+        //transform.Translate(0, 0, z);
+		GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, z));
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
