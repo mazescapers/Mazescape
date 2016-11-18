@@ -16,14 +16,25 @@ Platform assembly: C:\Users\Milo\Documents\GitHub\Mazescape\StdAlon_Data\Managed
 Loading C:\Users\Milo\Documents\GitHub\Mazescape\StdAlon_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Milo\Documents\GitHub\Mazescape\StdAlon_Data\Managed\Google.ProtocolBuffers.dll (this message is harmless)
 Loading C:\Users\Milo\Documents\GitHub\Mazescape\StdAlon_Data\Managed\Google.ProtocolBuffers.dll into Unity Child Domain
-- Completed reload, in  0.134 seconds
+- Completed reload, in  0.200 seconds
 Platform assembly: C:\Users\Milo\Documents\GitHub\Mazescape\StdAlon_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Milo\Documents\GitHub\Mazescape\StdAlon_Data\Managed\System.dll (this message is harmless)
 desktop: 1600x900 50Hz; virtual: 1600x900 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 1.693371 ms
+UnloadTime: 0.837212 ms
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 1774 -> priority: 1 
-Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:50499}
+  Thread -> id: 25ee4 -> priority: 1 
+Exception in OnStartServer:The Object you want to instantiate is null.   at UnityEngine.Object.CheckNullArgument (System.Object arg, System.String message) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Object.Instantiate[GameObject] (UnityEngine.GameObject original) [0x00000] in <filename unknown>:0 
+  at GameMaster.OnStartServer () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkIdentity.OnStartServer (Boolean allowNonZeroNetId) [0x00000] in <filename unknown>:0 
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Failed to spawn server object, assetId=512a1f92b93befa48915211c99917421 netId=146
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:7777}
