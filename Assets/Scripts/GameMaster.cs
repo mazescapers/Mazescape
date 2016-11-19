@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class GameMaster : NetworkBehaviour {
 
+    public static bool paused = false;
+
     public int MAZE_LENGTH;
     public int MAZE_WIDTH;
     public float WALL_WIDTH;
@@ -33,6 +35,7 @@ public class GameMaster : NetworkBehaviour {
 
     public override void OnStartServer()
 	{
+        paused = false;
 		Maze = Instantiate (Maze);
         Debug.Log("ff");
         player_color = new Color[3];
@@ -44,7 +47,7 @@ public class GameMaster : NetworkBehaviour {
         size_z = MAZE_WIDTH;
         wall_width = WALL_WIDTH;
 
-//        NetworkServer.Spawn(Maze);
+        NetworkServer.Spawn(Maze);
         maze = new Cell[size_x][];
 
         visited = new bool[size_x][];

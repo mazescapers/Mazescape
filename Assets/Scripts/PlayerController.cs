@@ -6,7 +6,10 @@ using System;
 public class PlayerController : NetworkBehaviour
 {
     public GameObject beaconPrefab;
+    public GameObject head;
+    public GameObject HUD;
 
+    bool moving = false;
     public static bool paused = false;
 
     // Update is called once per frame
@@ -18,15 +21,21 @@ public class PlayerController : NetworkBehaviour
                 return;
             }
 
-            GameObject camera = GameObject.Find("Camera");
-            camera.transform.position = transform.position;
-            camera.transform.rotation = transform.rotation;
-            // Need be updated to work on Androod 
-            float x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
-            float z = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
+            if(Input.GetButtonDown("Fire1")) {
+                moving = true;
+            }
 
-            transform.Rotate(0, x, 0);
-            transform.Translate(0, 0, z);
+            if(moving)
+            {
+                float x = head.transform.forward.x * Time.deltaTime;
+                float z = head.transform.forward.z * Time.deltaTime;
+                transform.Translate(x, 0, z);
+            }
+
+            if(Input.GetButtonUp("Fire1"))
+            {
+                moving = false;
+            }
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -36,7 +45,7 @@ public class PlayerController : NetworkBehaviour
     }
 
 	void Start() {
-		transform.Translate (0, 2.0f, 0);
+		transform.Translate (0, 0.5f, 0);
 	}
 
     [Command]
