@@ -23,7 +23,7 @@ public class PlayerController : NetworkBehaviour
                 moving = true;
             }
 
-            if(!GameMaster.onUI && moving)
+            if(moving)
             {
                 float x = head.transform.forward.x * Time.deltaTime;
                 float z = head.transform.forward.z * Time.deltaTime;

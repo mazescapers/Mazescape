@@ -92,7 +92,6 @@ public class GvrReticle : MonoBehaviour, IGvrGazePointer {
   /// point of the ray sent from the camera on the object.
   public void OnGazeStart(Camera camera, GameObject targetObject, Vector3 intersectionPosition,
                           bool isInteractive) {
-    GameMaster.onUI = true;
     SetGazeTarget(intersectionPosition, isInteractive);
   }
 
@@ -115,7 +114,6 @@ public class GvrReticle : MonoBehaviour, IGvrGazePointer {
   /// The camera is the event camera and the target is the object the user
   /// previously looked at.
   public void OnGazeExit(Camera camera, GameObject targetObject) {
-    GameMaster.onUI = false;
     reticleDistanceInMeters = kReticleDistanceMax;
     reticleInnerAngle = kReticleMinInnerAngle;
     reticleOuterAngle = kReticleMinOuterAngle;
