@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class GameMaster : NetworkBehaviour {
 
     public static bool paused = false;
+    public static bool onUI = false;
 
     public int MAZE_LENGTH;
     public int MAZE_WIDTH;

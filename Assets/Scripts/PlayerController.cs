@@ -7,7 +7,6 @@ public class PlayerController : NetworkBehaviour
 {
     public GameObject beaconPrefab;
     public GameObject head;
-    public GameObject HUD;
 
     bool moving = false;
     public static bool paused = false;
@@ -25,7 +24,7 @@ public class PlayerController : NetworkBehaviour
                 moving = true;
             }
 
-            if(moving)
+            if(!GameMaster.onUI && moving)
             {
                 float x = head.transform.forward.x * Time.deltaTime;
                 float z = head.transform.forward.z * Time.deltaTime;
