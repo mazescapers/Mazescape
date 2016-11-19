@@ -9,11 +9,10 @@ public class PlayerController : NetworkBehaviour
     public GameObject head;
 
     bool moving = false;
-    public static bool paused = false;
 
     // Update is called once per frame
     void Update () {
-        if(!paused)
+        if(!GameMaster.paused)
         {
             if (!isLocalPlayer)
             {
