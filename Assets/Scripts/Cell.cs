@@ -23,7 +23,6 @@ public class Cell : NetworkBehaviour
 	public bool wEnabled = true;
 
     public GameObject W;
-	[SyncVar]
     public GameObject floor;
 
     [SyncVar]

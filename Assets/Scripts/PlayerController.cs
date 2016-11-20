@@ -6,7 +6,8 @@ using System;
 public class PlayerController : NetworkBehaviour
 {
     public GameObject beaconPrefab;
-    public GameObject head;
+    public GvrHead head;
+    public GvrReticle reticle;
 
     bool moving = false;
 
@@ -18,6 +19,9 @@ public class PlayerController : NetworkBehaviour
             {
                 return;
             }
+
+            transform.Rotate(head.transform.localRotation.x, 0, head.transform.localRotation.z);
+            
 
             if(Input.GetButtonDown("Fire1")) {
                 moving = true;
@@ -40,6 +44,12 @@ public class PlayerController : NetworkBehaviour
                 CmdPlaceBeacon();
             }
         }   
+    }
+
+    public override void OnStartLocalPlayer()
+    {
+        head = (GvrHead) Instantiate(head, transform);
+        reticle = (GvrReticle) Instantiate(reticle, head.transform);
     }
 
 	void Start() {

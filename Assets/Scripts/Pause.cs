@@ -2,10 +2,12 @@
 using UnityEngine.Networking;
 using System.Collections;
 
-public class Pause : NetworkBehaviour {
-        
+public class Pause : MonoBehaviour {
+
+    public PlayerController player;
+
     public void togglePause()
     {
-        GameMaster.paused = !GameMaster.paused;
+
     }
 }
