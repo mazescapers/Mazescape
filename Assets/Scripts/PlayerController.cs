@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using System.Collections;
 using System;
 
@@ -12,9 +14,9 @@ public class PlayerController : NetworkBehaviour
     public GvrReticle reticle;
     public GameMaster GM;
     Camera cam;
-    Canvas canvas;
-    public GameObject menuPrefab;
-    public GameObject pausePrefab;
+    public Canvas canvas;
+    public Text pauseText;
+    public Text beaconText;
 
     bool moving = false;
 
@@ -51,18 +53,32 @@ public class PlayerController : NetworkBehaviour
     public override void OnStartLocalPlayer()
     {
         head = (GvrHead)Instantiate(head, transform);
-        reticle = (GvrReticle) Instantiate(reticle, head.transform);
+        reticle = (GvrReticle)Instantiate(reticle, head.transform);
         cam = GameObject.Find("Camera").GetComponent<Camera>();
-        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
-        canvas.worldCamera = cam;   
-        GameObject menu = (GameObject)Instantiate(menuPrefab, canvas.transform);
-        GameObject pause = (GameObject)Instantiate(pausePrefab, menu.transform);
+        canvas = (Canvas)Instantiate(canvas, transform);
+        canvas.worldCamera = cam;
+
+        pauseText = GameObject.Find("Pause").GetComponent<Text>();
+
+        EventTrigger trigger1 = pauseText.GetComponent<EventTrigger>();
+        EventTrigger.Entry entry1 = new EventTrigger.Entry();
+        entry1.eventID = EventTriggerType.PointerClick;
+        entry1.callback.AddListener((data) => { OnPointerClickDelegate((PointerEventData)data); });
+        trigger1.triggers.Add(entry1);
+
+        beaconText = GameObject.Find("Beacon").GetComponent<Text>();    
     }
 
 	void Start() {
         GM = GameObject.Find("GameMaster").GetComponent<GameMaster>();
         transform.Translate(0, 0.5f, 0);
     }
+
+    public void OnPointerClickDelegate(PointerEventData data)
+    {
+        Debug.Log(EventSystem.current);
+        CmdTogglePause();
+    }   
 
     [Command]
     private void CmdPlaceBeacon()
@@ -76,17 +92,17 @@ public class PlayerController : NetworkBehaviour
     }
 
     [Command]
-    private void CmdPause()
+    private void CmdTogglePause()
     {
         Debug.Log("Pausing");
-        GM.paused = true;
+        GM.paused = !GM.paused;
     }
 
-    [Command]
-    private void CmdUnpause()
-    {
-        Debug.Log("Unpausing");
-        GM.paused = false;
-    }
+    //[Command]
+    //private void CmdUnpause()
+    //{
+    //    Debug.Log("Unpausing");
+    //    GM.paused = false;
+    //}
 
 }
