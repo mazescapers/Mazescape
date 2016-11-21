@@ -5,12 +5,16 @@ using System;
 
 public class PlayerController : NetworkBehaviour
 {
+    public static bool paused;
     public GameObject beaconPrefab;
+    public GameObject visor;
     public GvrHead head;
     public GvrReticle reticle;
     public GameMaster GM;
-    public Camera cam;
-    public Canvas canvas;
+    Camera cam;
+    Canvas canvas;
+    public GameObject menuPrefab;
+    public GameObject pausePrefab;
 
     bool moving = false;
 
@@ -18,11 +22,6 @@ public class PlayerController : NetworkBehaviour
     void Update () {
         
         if (!isLocalPlayer || GM == null || GM.paused)
-        {
-            return;
-        }
-
-        if (!isLocalPlayer)
         {
             return;
         }
@@ -51,19 +50,19 @@ public class PlayerController : NetworkBehaviour
 
     public override void OnStartLocalPlayer()
     {
-        transform.Translate(0, 0.5f, 0);
-        GM = GameObject.Find("GameMaster").GetComponent<GameMaster>();
         head = (GvrHead)Instantiate(head, transform);
-        GameObject.Find("Visor").transform.parent = head.transform;
         reticle = (GvrReticle) Instantiate(reticle, head.transform);
         cam = GameObject.Find("Camera").GetComponent<Camera>();
         canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
-        canvas.worldCamera = cam;
+        canvas.worldCamera = cam;   
+        GameObject menu = (GameObject)Instantiate(menuPrefab, canvas.transform);
+        GameObject pause = (GameObject)Instantiate(pausePrefab, menu.transform);
     }
 
 	void Start() {
-		
-	}
+        GM = GameObject.Find("GameMaster").GetComponent<GameMaster>();
+        transform.Translate(0, 0.5f, 0);
+    }
 
     [Command]
     private void CmdPlaceBeacon()
@@ -77,8 +76,17 @@ public class PlayerController : NetworkBehaviour
     }
 
     [Command]
-    private void CmdTogglePause()
+    private void CmdPause()
     {
-        GM.paused = !GM.paused;
+        Debug.Log("Pausing");
+        GM.paused = true;
     }
+
+    [Command]
+    private void CmdUnpause()
+    {
+        Debug.Log("Unpausing");
+        GM.paused = false;
+    }
+
 }

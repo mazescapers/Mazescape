@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class GameMaster : NetworkBehaviour {
 
     [SyncVar]
-    public bool paused = false;
+    public bool paused;
 
     public int MAZE_LENGTH;
     public int MAZE_WIDTH;
@@ -79,8 +79,8 @@ public class GameMaster : NetworkBehaviour {
         dfsMazeGen(START_X, START_Z);
 
         // Mark the start and exit
-        RpcPaint(maze[START_X][START_Z].floor, Color.green);
-        RpcPaint(maze[END_X][END_Z].floor, Color.red);
+        //RpcPaint(maze[START_X][START_Z].floor, Color.green);
+        //RpcPaint(maze[END_X][END_Z].floor, Color.red);
         //      maze[START_X][START_Z].floor.GetComponent<Renderer>().material.color = Color.green;
         //    maze[END_X][END_Z].floor.GetComponent<Renderer>().material.color = Color.red;
 
@@ -109,7 +109,9 @@ public class GameMaster : NetworkBehaviour {
 
         NetworkServer.Spawn(Maze);
     }
-    
+
+
+
     [ClientRpc]
     void RpcPaint(GameObject obj, Color col)
     {
