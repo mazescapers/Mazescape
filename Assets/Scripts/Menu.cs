@@ -17,10 +17,14 @@ public class Menu : MonoBehaviour
 	public bool isClickable, isBackButton, isRecursiveBackButton;
 
 	private bool isLeaf, isRoot, isDisplayed;
-	private UnityEngine.UI.Text mText = null; // This menu's text object, if it has one.
-	private List<Transform> submenuList; // Recursive submenu children.
-	private Menu menuParent; // This menu's parent menu, if it has one.
-	private Color highlightColor, normalColor; // Colors for text.
+	private UnityEngine.UI.Text mText = null;
+	// This menu's text object, if it has one.
+	private List<Transform> submenuList;
+	// Recursive submenu children.
+	private Menu menuParent;
+	// This menu's parent menu, if it has one.
+	private Color highlightColor, normalColor;
+	// Colors for text.
 
 	// Use this for initialization
 	void Awake ()
@@ -40,7 +44,7 @@ public class Menu : MonoBehaviour
 			Menu thisMenu = thisChild.GetComponent<Menu> ();
 			// If the child has no Menu component, ignore it
 			if (thisMenu != null) {
-				Debug.Log ("Adding " + name + " submenu: " + thisChild.name);
+				//Debug.Log ("Adding " + name + " submenu: " + thisChild.name);
 				submenuList.Add (thisChild);
 			}
 		}
@@ -59,23 +63,24 @@ public class Menu : MonoBehaviour
 		isDisplayed = isRoot && (isClickable || isLeaf);
 	}
 
-	void Start() {
+	void Start ()
+	{
 		if (mText != null) {
 			// If it has text, save its color...
 			normalColor = mText.color;
 			// ...hardcode the selection color for now...
 			highlightColor = Color.green;
 			// ...and enable/disable the text accordingly
-			Debug.Log(name + "'s mText is not null and it is displayed: " + isDisplayed);
-			SetDisplayed(isDisplayed);
+			//Debug.Log(name + "'s mText is not null and it is displayed: " + isDisplayed);
+			SetDisplayed (isDisplayed);
 		}
 		if (isRoot && (isClickable || isLeaf)) {
-			Debug.Log (this.name + " is displayed");
+			//Debug.Log (this.name + " is displayed");
 			// If it is a clickable root, hide all submenus
 			CloseMenuChildrenRecursively ();
 			ShowMenu ();
 		} else if (isRoot) {
-			Debug.Log (this.name + " is not displayed and is a root");
+			//Debug.Log (this.name + " is not displayed and is a root");
 			OpenMenuChildren ();
 		}
 	}
@@ -106,13 +111,16 @@ public class Menu : MonoBehaviour
 				HideMenu (); // Might be times we don't want to hide it after the action?
 			} else {
 				// Open its submenu; i.e. display the children and hide this menu option's text.
+				if (menuParent != null) {
+					menuParent.CloseMenuChildren ();
+				}
 				OpenMenuChildren ();
 			}
 		}
 	}
 
 	// Closes all child menus.
-	void CloseMenuChildren ()
+	public void CloseMenuChildren ()
 	{
 		foreach (Transform menuObj in submenuList) {
 			// Get the child's menu
@@ -140,9 +148,18 @@ public class Menu : MonoBehaviour
 	void BackUp ()
 	{
 		if (menuParent != null) {
-			menuParent.ShowMenu ();
-			menuParent.CloseMenuChildrenRecursively ();
+			menuParent.CloseMenuChildren ();
+			if (menuParent.GetParent () != null) {
+				menuParent.GetParent ().OpenMenuChildren ();
+			} else {
+				menuParent.ShowMenu ();
+			}
 		}
+	}
+
+	public Menu GetParent ()
+	{
+		return menuParent;
 	}
 
 	// Moves up to the highest ancestor (the menu root) then shows that root
@@ -152,8 +169,13 @@ public class Menu : MonoBehaviour
 		if (menuParent != null) {
 			menuParent.BackUpRecursively ();
 		} else {
-			ShowMenu ();
-			CloseMenuChildrenRecursively ();
+			if (isClickable) {
+				ShowMenu ();
+				CloseMenuChildrenRecursively ();
+			} else {
+				CloseMenuChildrenRecursively ();
+				OpenMenuChildren ();
+			}
 		} 
 	}
 
@@ -161,6 +183,7 @@ public class Menu : MonoBehaviour
 	void OpenMenuChildren ()
 	{
 		foreach (Transform menuObj in submenuList) {
+			//Debug.Log ("Checking " + menuObj.name);
 			Menu thisMenu = menuObj.GetComponent<Menu> ();
 			UnityEngine.UI.Text thisText = thisMenu.mText;
 			// If the child has text, display it
@@ -178,7 +201,7 @@ public class Menu : MonoBehaviour
 	// Sets the 'isDisplayed' variable, and if this menu has text, it shows/hides it too
 	void SetDisplayed (bool disp)
 	{
-		Debug.Log ("Setting visibility of " + this.name + " to " + disp);
+		//Debug.Log ("Setting visibility of " + this.name + " to " + disp);
 		isDisplayed = disp;
 		if (mText != null) {
 			mText.enabled = disp;
@@ -209,13 +232,15 @@ public class Menu : MonoBehaviour
 		SetDisplayed (true);
 	}
 
-	public void Hover() {
+	public void Hover ()
+	{
 		if (isClickable && mText != null) {
 			mText.color = highlightColor;
 		}
 	}
 
-	public void Unhover() {
+	public void Unhover ()
+	{
 		if (isClickable && mText != null) {
 			mText.color = normalColor;
 		}

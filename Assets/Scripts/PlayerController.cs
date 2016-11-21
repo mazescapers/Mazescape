@@ -9,6 +9,8 @@ public class PlayerController : NetworkBehaviour
     public GvrHead head;
     public GvrReticle reticle;
     public GameMaster GM;
+    public Camera cam;
+    public Canvas canvas;
 
     bool moving = false;
 
@@ -49,14 +51,18 @@ public class PlayerController : NetworkBehaviour
 
     public override void OnStartLocalPlayer()
     {
+        transform.Translate(0, 0.5f, 0);
         GM = GameObject.Find("GameMaster").GetComponent<GameMaster>();
-        head = (GvrHead) Instantiate(head, transform);
+        head = (GvrHead)Instantiate(head, transform);
         GameObject.Find("Visor").transform.parent = head.transform;
         reticle = (GvrReticle) Instantiate(reticle, head.transform);
+        cam = GameObject.Find("Camera").GetComponent<Camera>();
+        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        canvas.worldCamera = cam;
     }
 
 	void Start() {
-		transform.Translate (0, 0.5f, 0);
+		
 	}
 
     [Command]
