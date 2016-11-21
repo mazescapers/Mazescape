@@ -8,43 +8,48 @@ public class PlayerController : NetworkBehaviour
     public GameObject beaconPrefab;
     public GvrHead head;
     public GvrReticle reticle;
+    public GameMaster GM;
 
     bool moving = false;
 
     // Update is called once per frame
     void Update () {
-        if(!GameMaster.paused)
+        
+        if (!isLocalPlayer || GM == null || GM.paused)
         {
-            if (!isLocalPlayer)
-            {
-                return;
-            }
+            return;
+        }
 
-            if(Input.GetButtonDown("Fire1")) {
-                moving = true;
-            }
+        if (!isLocalPlayer)
+        {
+            return;
+        }
 
-            if (moving)
-            {
-                float x = head.transform.forward.x * Time.deltaTime;
-                float z = head.transform.forward.z * Time.deltaTime;
-                transform.Translate(x, 0, z);
-            }
+        if(Input.GetButtonDown("Fire1")) {
+            moving = true;
+        }
 
-            if(Input.GetButtonUp("Fire1"))
-            {
-                moving = false;
-            }
+        if (moving)
+        {
+            float x = head.transform.forward.x * Time.deltaTime;
+            float z = head.transform.forward.z * Time.deltaTime;
+            transform.Translate(x, 0, z);
+        }
 
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                CmdPlaceBeacon();
-            }
-        }   
+        if(Input.GetButtonUp("Fire1"))
+        {
+            moving = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            CmdPlaceBeacon();
+        }  
     }
 
     public override void OnStartLocalPlayer()
-    { 
+    {
+        GM = GameObject.Find("GameMaster").GetComponent<GameMaster>();
         head = (GvrHead) Instantiate(head, transform);
         GameObject.Find("Visor").transform.parent = head.transform;
         reticle = (GvrReticle) Instantiate(reticle, head.transform);
@@ -63,5 +68,11 @@ public class PlayerController : NetworkBehaviour
             transform.rotation);
 
         NetworkServer.Spawn(beacon);
+    }
+
+    [Command]
+    private void CmdTogglePause()
+    {
+        GM.paused = !GM.paused;
     }
 }

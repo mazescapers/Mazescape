@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public class GameMaster : NetworkBehaviour {
 
-    public static bool paused = false;
+    [SyncVar]
+    public bool paused = false;
 
     public int MAZE_LENGTH;
     public int MAZE_WIDTH;
@@ -16,7 +17,7 @@ public class GameMaster : NetworkBehaviour {
     public int END_X;
     public int END_Z;
 
-	public GameObject Beacon;
+    public GameObject Beacon;
 
     public Color[] player_color;
 
@@ -34,9 +35,9 @@ public class GameMaster : NetworkBehaviour {
     public static List<int[]> dead_ends;
 
     public override void OnStartServer()
-	{
+    {
         paused = false;
-		Maze = Instantiate (Maze);
+        Maze = Instantiate(Maze);
         Debug.Log("ff");
         player_color = new Color[3];
         player_color[0] = Color.red;
@@ -60,12 +61,12 @@ public class GameMaster : NetworkBehaviour {
             walked[i] = new bool[size_z];
             for (int j = 0; j < size_z; j++)
             {
-               // CellBase.gameObject.SetActive(true);
+                // CellBase.gameObject.SetActive(true);
                 Vector3 pos = new Vector3(i, 0, j);
                 var cel = (GameObject)Instantiate(CellBase, pos, Quaternion.identity, Maze.transform);
-				NetworkServer.Spawn (cel);
+                NetworkServer.Spawn(cel);
                 maze[i][j] = cel.GetComponent<Cell>();
-				Cell c = maze [i] [j];
+                Cell c = maze[i][j];
                 maze[i][j].x = i;
                 maze[i][j].z = j;
                 visited[i][j] = false;
@@ -80,8 +81,8 @@ public class GameMaster : NetworkBehaviour {
         // Mark the start and exit
         RpcPaint(maze[START_X][START_Z].floor, Color.green);
         RpcPaint(maze[END_X][END_Z].floor, Color.red);
-  //      maze[START_X][START_Z].floor.GetComponent<Renderer>().material.color = Color.green;
-    //    maze[END_X][END_Z].floor.GetComponent<Renderer>().material.color = Color.red;
+        //      maze[START_X][START_Z].floor.GetComponent<Renderer>().material.color = Color.green;
+        //    maze[END_X][END_Z].floor.GetComponent<Renderer>().material.color = Color.red;
 
         // Find and mark the path from the start to the exit
         path = new Stack<int[]>();
@@ -105,12 +106,10 @@ public class GameMaster : NetworkBehaviour {
                 }
             }
         }
-			
-		NetworkServer.Spawn (Maze);
 
-
+        NetworkServer.Spawn(Maze);
     }
-
+    
     [ClientRpc]
     void RpcPaint(GameObject obj, Color col)
     {
