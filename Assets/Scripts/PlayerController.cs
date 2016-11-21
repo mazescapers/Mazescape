@@ -20,14 +20,11 @@ public class PlayerController : NetworkBehaviour
                 return;
             }
 
-            transform.Rotate(head.transform.localRotation.x, 0, head.transform.localRotation.z);
-            
-
             if(Input.GetButtonDown("Fire1")) {
                 moving = true;
             }
 
-            if(moving)
+            if (moving)
             {
                 float x = head.transform.forward.x * Time.deltaTime;
                 float z = head.transform.forward.z * Time.deltaTime;
@@ -47,8 +44,9 @@ public class PlayerController : NetworkBehaviour
     }
 
     public override void OnStartLocalPlayer()
-    {
+    { 
         head = (GvrHead) Instantiate(head, transform);
+        GameObject.Find("Visor").transform.parent = head.transform;
         reticle = (GvrReticle) Instantiate(reticle, head.transform);
     }
 
