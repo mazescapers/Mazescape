@@ -32,14 +32,21 @@ public class PlayerController : NetworkBehaviour
             moving = true;
         }
 
+        Rigidbody myBody = gameObject.GetComponent<Rigidbody>();
         if (moving)
         {
-            float x = head.transform.forward.x * Time.deltaTime;
-            float z = head.transform.forward.z * Time.deltaTime;
-            transform.Translate(x, 0, z);
+            Vector3 velocity = myBody.velocity;
+            velocity.x = head.transform.forward.x;
+            velocity.z = head.transform.forward.z;
+            myBody.velocity = velocity;
+        } else
+        {
+            myBody.velocity = Vector3.zero;
         }
 
-        if(Input.GetButtonUp("Fire1"))
+        Debug.Log(myBody.velocity);
+
+        if (Input.GetButtonUp("Fire1"))
         {
             moving = false;
         }
@@ -76,8 +83,12 @@ public class PlayerController : NetworkBehaviour
 
     public void OnPointerClickDelegate(PointerEventData data)
     {
-        Debug.Log(EventSystem.current);
-        CmdTogglePause();
+        if(data.rawPointerPress == pauseText.gameObject)
+        {
+            Debug.Log(data.selectedObject);
+            CmdTogglePause();
+        }
+        
     }   
 
     [Command]
