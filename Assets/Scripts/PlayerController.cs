@@ -59,7 +59,6 @@ public class PlayerController : NetworkBehaviour
     {
         if(collision.collider.gameObject.tag == "Player")
         {
-            Debug.Log(collision.collider.gameObject.tag);
             Physics.IgnoreCollision(gameObject.GetComponentInChildren<Collider>(), collision.collider);
         }
     }
