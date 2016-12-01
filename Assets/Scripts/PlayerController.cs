@@ -44,8 +44,6 @@ public class PlayerController : NetworkBehaviour
             myBody.velocity = Vector3.zero;
         }
 
-        Debug.Log(myBody.velocity);
-
         if (Input.GetButtonUp("Fire1"))
         {
             moving = false;
@@ -55,6 +53,15 @@ public class PlayerController : NetworkBehaviour
         {
             CmdPlaceBeacon();
         }  
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.gameObject.tag == "Player")
+        {
+            Debug.Log(collision.collider.gameObject.tag);
+            Physics.IgnoreCollision(gameObject.GetComponentInChildren<Collider>(), collision.collider);
+        }
     }
 
     public override void OnStartLocalPlayer()
