@@ -225,7 +225,7 @@ MonoBehaviour:
   GM: {fileID: 0}
   canvas: {fileID: 223000011732589844, guid: 2ac567878ce86fd40a3b88970bc6b0e8, type: 2}
   pauseText: {fileID: 0}
-  beaconText: {fileID: 0}
+  unpauseText: {fileID: 0}
 --- !u!114 &114000011459699702
 MonoBehaviour:
   m_ObjectHideFlags: 1
