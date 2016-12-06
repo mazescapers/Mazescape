@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 462c457f8eb69fe43b87786b2e16f8bc
 timeCreated: 1480611524
+=======
+guid: 1b5ab0711dec13f45a2cd8ea445921ec
+timeCreated: 1479699551
+>>>>>>> refs/remotes/origin/mazesWorking
 licenseType: Free
 NativeFormatImporter:
   userData: 
