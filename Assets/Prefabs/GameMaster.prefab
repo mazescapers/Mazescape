@@ -55,22 +55,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 27
-    i1: 90
-    i2: 176
-    i3: 113
-    i4: 29
-    i5: 236
-    i6: 19
-    i7: 244
-    i8: 90
-    i9: 44
-    i10: 216
-    i11: 234
-    i12: 68
-    i13: 89
-    i14: 33
-    i15: 236
+    i0: 70
+    i1: 44
+    i2: 69
+    i3: 127
+    i4: 142
+    i5: 182
+    i6: 159
+    i7: 228
+    i8: 59
+    i9: 135
+    i10: 120
+    i11: 107
+    i12: 46
+    i13: 22
+    i14: 248
+    i15: 188
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
 --- !u!114 &114000013200055182
@@ -94,5 +94,5 @@ MonoBehaviour:
   END_Z: 11
   Beacon: {fileID: 1000013984846678, guid: b975a1dd18070421ea6c6f722f9e3240, type: 2}
   player_color: []
-  Maze: {fileID: 1000012022287656, guid: 2f17f230bbf24ce488a4022d5b45ce85, type: 2}
+  Maze: {fileID: 1000012022287656, guid: 27f903f65e2545d41b1713bea00810e9, type: 2}
   CellBase: {fileID: 1000014063209050, guid: 0675c88f9dc128b449d3c5a2e82d6cfc, type: 2}

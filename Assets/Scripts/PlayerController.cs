@@ -10,6 +10,7 @@ public class PlayerController : NetworkBehaviour
     public static bool paused;
     public GameObject beaconPrefab;
     public GameObject visor;
+    public GameObject body;
     public GvrHead head;
     public GvrReticle reticle;
     public GameMaster GM;
@@ -17,6 +18,9 @@ public class PlayerController : NetworkBehaviour
     public Canvas canvas;
     public Text pauseText;
     public Text beaconText;
+    public int playerNum;
+    public bool usingColorManage;
+    public ColorManage cm;
 
     bool moving = false;
 
@@ -79,7 +83,20 @@ public class PlayerController : NetworkBehaviour
         entry1.callback.AddListener((data) => { OnPointerClickDelegate((PointerEventData)data); });
         trigger1.triggers.Add(entry1);
 
+        if (usingColorManage)
+        {
+            CmdGetColor();
+        }
+
         beaconText = GameObject.Find("Beacon").GetComponent<Text>();    
+    }
+
+    [Command]
+    private void CmdGetColor()
+    {
+        cm = GameObject.Find("ColorManager").GetComponent<ColorManage>();
+        cm.assignNumber(this);
+        body.GetComponent<Renderer>().material.color = cm.getColor(playerNum);
     }
 
 	void Start() {

@@ -220,12 +220,16 @@ MonoBehaviour:
   beaconPrefab: {fileID: 1000013984846678, guid: b975a1dd18070421ea6c6f722f9e3240,
     type: 2}
   visor: {fileID: 1000013824967838}
+  body: {fileID: 1000010782448280}
   head: {fileID: 11400004, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
   reticle: {fileID: 11446276, guid: 60270cf52a5e94998a5a335989159738, type: 2}
   GM: {fileID: 0}
   canvas: {fileID: 223000011732589844, guid: 2ac567878ce86fd40a3b88970bc6b0e8, type: 2}
   pauseText: {fileID: 0}
   beaconText: {fileID: 0}
+  playerNum: 0
+  usingColorManage: 1
+  cm: {fileID: 0}
 --- !u!114 &114000011459699702
 MonoBehaviour:
   m_ObjectHideFlags: 1
