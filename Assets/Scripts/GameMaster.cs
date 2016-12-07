@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public class GameMaster : NetworkBehaviour {
 
+    [SyncVar]
+    public bool paused;
+
     public int MAZE_LENGTH;
     public int MAZE_WIDTH;
     public float WALL_WIDTH;
@@ -14,7 +17,7 @@ public class GameMaster : NetworkBehaviour {
     public int END_X;
     public int END_Z;
 
-	public GameObject Beacon;
+    public GameObject Beacon;
 
     public Color[] player_color;
 
@@ -22,7 +25,7 @@ public class GameMaster : NetworkBehaviour {
     public static int size_z;
     public static float wall_width;
 
-    GameObject Maze;
+    public GameObject Maze;
     public GameObject CellBase;
     public static Cell[][] maze;
     public static bool[][] visited;
@@ -33,6 +36,8 @@ public class GameMaster : NetworkBehaviour {
 
     public override void OnStartServer()
     {
+        paused = false;
+        Maze = Instantiate(Maze);
         Debug.Log("ff");
         player_color = new Color[3];
         player_color[0] = Color.red;
@@ -43,8 +48,7 @@ public class GameMaster : NetworkBehaviour {
         size_z = MAZE_WIDTH;
         wall_width = WALL_WIDTH;
 
-        Maze = new GameObject("Maze");
-//        NetworkServer.Spawn(Maze);
+        NetworkServer.Spawn(Maze);
         maze = new Cell[size_x][];
 
         visited = new bool[size_x][];
@@ -57,11 +61,12 @@ public class GameMaster : NetworkBehaviour {
             walked[i] = new bool[size_z];
             for (int j = 0; j < size_z; j++)
             {
-               // CellBase.gameObject.SetActive(true);
+                // CellBase.gameObject.SetActive(true);
                 Vector3 pos = new Vector3(i, 0, j);
                 var cel = (GameObject)Instantiate(CellBase, pos, Quaternion.identity, Maze.transform);
                 NetworkServer.Spawn(cel);
                 maze[i][j] = cel.GetComponent<Cell>();
+                Cell c = maze[i][j];
                 maze[i][j].x = i;
                 maze[i][j].z = j;
                 visited[i][j] = false;
@@ -74,15 +79,15 @@ public class GameMaster : NetworkBehaviour {
         dfsMazeGen(START_X, START_Z);
 
         // Mark the start and exit
-        RpcPaint(maze[START_X][START_Z].floor, Color.green);
-        RpcPaint(maze[END_X][END_Z].floor, Color.red);
-  //      maze[START_X][START_Z].floor.GetComponent<Renderer>().material.color = Color.green;
-    //    maze[END_X][END_Z].floor.GetComponent<Renderer>().material.color = Color.red;
+        //RpcPaint(maze[START_X][START_Z].floor, Color.green);
+        //RpcPaint(maze[END_X][END_Z].floor, Color.red);
+        //      maze[START_X][START_Z].floor.GetComponent<Renderer>().material.color = Color.green;
+        //    maze[END_X][END_Z].floor.GetComponent<Renderer>().material.color = Color.red;
 
         // Find and mark the path from the start to the exit
         path = new Stack<int[]>();
         walk(START_X, START_Z);
-        markPath(path);
+        //markPath(path);
 
         // Find dead ends
         dead_ends = new List<int[]>();
@@ -101,11 +106,11 @@ public class GameMaster : NetworkBehaviour {
                 }
             }
         }
-		NetworkServer.SpawnObjects ();
-		PlaceBeacon (START_X + 1, START_Z + 1);
 
-
+        NetworkServer.Spawn(Maze);
     }
+
+
 
     [ClientRpc]
     void RpcPaint(GameObject obj, Color col)
@@ -142,6 +147,7 @@ public class GameMaster : NetworkBehaviour {
             if (!visited[next_x][next_z])
             {
                 maze[x][z].removeWall(directions[i]);
+
                 dfsMazeGen(next_x, next_z);
             }
         }
@@ -201,7 +207,6 @@ public class GameMaster : NetworkBehaviour {
 	public void PlaceBeacon(float x, float z) {
 		Beacon.SetActive (true);
 		GameObject newBeacon = (GameObject) Instantiate (Beacon, new Vector3(x, 0, z), Quaternion.identity);
-		NetworkServer.Spawn (newBeacon);
 		newBeacon.SetActive (true);
 		newBeacon.GetComponent<ParticleSystem> ().Play ();
 	}
