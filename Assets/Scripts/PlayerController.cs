@@ -36,6 +36,7 @@ public class PlayerController : NetworkBehaviour
         {
             return;
         }
+
 		if (IsServerPlayer ()) {
 			if (Input.GetButtonDown("Fire1"))
 			{
