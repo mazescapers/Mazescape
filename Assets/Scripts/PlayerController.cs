@@ -3,6 +3,8 @@ using UnityEngine.Networking;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
+
 using System;
 
 public class PlayerController : NetworkBehaviour
@@ -21,6 +23,9 @@ public class PlayerController : NetworkBehaviour
     public int playerNum;
     public bool usingColorManage;
     public ColorManage cm;
+	List<GameObject> beacons;
+	int beaconPlayer = 0;
+	int numBeacons = 5;
 
     bool moving = false;
 
@@ -31,7 +36,18 @@ public class PlayerController : NetworkBehaviour
         {
             return;
         }
-
+		if (IsServerPlayer ()) {
+			if (Input.GetButtonDown("Fire1"))
+			{
+				CmdPlaceBeacon();
+			} 
+			if (Input.GetKeyDown (KeyCode.Space)) {
+				GM.serverPlayer = 0;
+				transform.Rotate(-90.0f * Vector3.right);
+				transform.Translate (-4.0f, -10.0f, -4.0f);
+			}
+			return;
+		}
         if(Input.GetButtonDown("Fire1")) {
             moving = true;
         }
@@ -53,10 +69,7 @@ public class PlayerController : NetworkBehaviour
             moving = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            CmdPlaceBeacon();
-        }  
+         
     }
 
     void OnCollisionEnter(Collision collision)
@@ -102,6 +115,13 @@ public class PlayerController : NetworkBehaviour
 	void Start() {
         GM = GameObject.Find("GameMaster").GetComponent<GameMaster>();
         transform.Translate(0, 0.5f, 0);
+		if (GM.serverPlayer == 0)
+			GM.serverPlayer = netId.Value;
+		if (IsServerPlayer()) {
+			transform.Translate (4.0f, 10.0f, 4.0f);
+			transform.Rotate(90.0f * Vector3.right);
+		}
+		beacons = new List<GameObject> {null, null, null, null, null};
     }
 
     public void OnPointerClickDelegate(PointerEventData data)
@@ -117,12 +137,29 @@ public class PlayerController : NetworkBehaviour
     [Command]
     private void CmdPlaceBeacon()
     {
-        var beacon = (GameObject)Instantiate(
-            beaconPrefab,
-            transform.position,
-            transform.rotation);
-
-        NetworkServer.Spawn(beacon);
+		RaycastHit hit;
+		Ray ray = head.Gaze;
+		if (Physics.Raycast (ray, out hit, 100.0f)) {
+			if (hit.collider.gameObject.name.Contains ("ColSel")) {
+				int selNum = (int)(hit.collider.gameObject.name [6] - '0');
+				beaconPlayer = selNum;
+				return;
+			}
+			Color beaconCol = cm.getColor(beaconPlayer);
+			beaconCol.a = 0.5f;
+			Debug.Log(beaconCol);
+			var beacon = (GameObject)Instantiate(
+				beaconPrefab,
+				hit.point,
+				Quaternion.identity);
+			beacon.GetComponent<Renderer>().material.color = beaconCol;
+			beacon.GetComponent<BeaconBehaviour> ().colVal = beaconPlayer;
+			if (beacons[beaconPlayer % numBeacons] != null) {
+				Destroy (beacons[beaconPlayer % numBeacons], 0.1f);
+			}
+			beacons [beaconPlayer % numBeacons] = beacon;
+			NetworkServer.Spawn(beacon);
+		}
     }
 
     [Command]
@@ -131,6 +168,10 @@ public class PlayerController : NetworkBehaviour
         Debug.Log("Pausing");
         GM.paused = !GM.paused;
     }
+
+	public bool IsServerPlayer() {
+		return netId.Value == GM.serverPlayer;
+	}
 
     //[Command]
     //private void CmdUnpause()
