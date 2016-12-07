@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44692504, g: 0.49678683, b: 0.57508487, a: 1}
+  m_IndirectSpecularColor: {r: 0.44692534, g: 0.49678725, b: 0.57508564, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
   Beacon: {fileID: 1000013984846678, guid: b975a1dd18070421ea6c6f722f9e3240, type: 2}
   player_color: []
   serverPlayer: 0
-  Maze: {fileID: 1000012022287656, guid: 13511751fe8c54edd9179112af4f1df8, type: 2}
+  Maze: {fileID: 1000012022287656, guid: 27f903f65e2545d41b1713bea00810e9, type: 2}
   CellBase: {fileID: 1000014063209050, guid: 0675c88f9dc128b449d3c5a2e82d6cfc, type: 2}
 --- !u!1001 &448058436
 Prefab:
@@ -572,7 +572,7 @@ MonoBehaviour:
   m_SpawnPrefabs:
   - {fileID: 1000013984846678, guid: b975a1dd18070421ea6c6f722f9e3240, type: 2}
   - {fileID: 1000014063209050, guid: 0675c88f9dc128b449d3c5a2e82d6cfc, type: 2}
-  - {fileID: 0}
+  - {fileID: 1000012022287656, guid: 27f903f65e2545d41b1713bea00810e9, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
