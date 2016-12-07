@@ -9,50 +9,61 @@ public class PlayerController : NetworkBehaviour
 {
     public static bool paused;
     public GameObject beaconPrefab;
-    public GameObject visor;
+    public GameObject body;
     public GvrHead head;
     public GvrReticle reticle;
     public GameMaster GM;
     Camera cam;
-    public Canvas canvas;
-    public Text pauseText;
-    public Text unpauseText;
+    public Canvas HUD;
+    public Canvas UI;
+    Text pauseText;
+    Text unpauseText;
+    Text quitText;
 
     bool moving = false;
 
     // Update is called once per frame
     void Update () {
         
-        if (!isLocalPlayer || GM == null || GM.paused)
+        if (!isLocalPlayer || GM == null)
         {
             return;
         }
 
-        if(Input.GetButtonDown("Fire1")) {
-            moving = true;
-        }
+        Vector3 rotation = body.transform.rotation.eulerAngles;
+        rotation.y = head.transform.rotation.eulerAngles.y;
+        body.transform.rotation = Quaternion.Euler(rotation);
 
-        Rigidbody myBody = gameObject.GetComponent<Rigidbody>();
-        if (moving)
+        if(!GM.paused)
         {
-            Vector3 velocity = myBody.velocity;
-            velocity.x = head.transform.forward.x;
-            velocity.z = head.transform.forward.z;
-            myBody.velocity = velocity;
-        } else
-        {
-            myBody.velocity = Vector3.zero;
-        }
+            if (Input.GetButtonDown("Fire1"))
+            {
+                moving = true;
+            }
 
-        if (Input.GetButtonUp("Fire1"))
-        {
-            moving = false;
-        }
+            Rigidbody myBody = gameObject.GetComponent<Rigidbody>();
+            if (moving)
+            {
+                Vector3 velocity = myBody.velocity;
+                velocity.x = head.transform.forward.x;
+                velocity.z = head.transform.forward.z;
+                myBody.velocity = velocity;
+            }
+            else
+            {
+                myBody.velocity = Vector3.zero;
+            }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            CmdPlaceBeacon();
-        }  
+            if (Input.GetButtonUp("Fire1"))
+            {
+                moving = false;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                CmdPlaceBeacon();
+            }
+        }
     }
 
     void OnCollisionEnter(Collision collision)
@@ -65,17 +76,25 @@ public class PlayerController : NetworkBehaviour
 
     public override void OnStartLocalPlayer()
     {
+        GM = GameObject.Find("GameMaster").GetComponent<GameMaster>();
+        transform.Translate(0, 0.5f, 0);
+
+        body = GameObject.Find("Body");
+
         head = (GvrHead)Instantiate(head, transform);
         reticle = (GvrReticle)Instantiate(reticle, head.transform);
         cam = GameObject.Find("Camera").GetComponent<Camera>();
 
-        canvas = (Canvas)Instantiate(canvas, transform);
-        Vector3 pos = gameObject.transform.forward;
-        canvas.transform.localPosition = pos;
-        canvas.worldCamera = cam;
+        HUD = (Canvas)Instantiate(HUD, cam.transform);
+        HUD.transform.localPosition = new Vector3(0f, 0.1f, 0.5f);
+        HUD.worldCamera = cam;
+
+        UI = (Canvas)Instantiate(UI, body.transform);
+        UI.worldCamera = cam;
 
         pauseText = GameObject.Find("Pause").GetComponent<Text>();
         unpauseText = GameObject.Find("Unpause").GetComponent<Text>();
+        quitText = GameObject.Find("Quit").GetComponent<Text>();
 
         EventTrigger trigger1 = pauseText.GetComponent<EventTrigger>();
         EventTrigger.Entry entry1 = new EventTrigger.Entry();
@@ -88,11 +107,15 @@ public class PlayerController : NetworkBehaviour
         entry2.eventID = EventTriggerType.PointerClick;
         entry2.callback.AddListener((data) => { OnPointerClickDelegate((PointerEventData)data); });
         trigger2.triggers.Add(entry2);
+
+        EventTrigger trigger3 = quitText.GetComponent<EventTrigger>();
+        EventTrigger.Entry entry3 = new EventTrigger.Entry();
+        entry3.eventID = EventTriggerType.PointerClick;
+        entry3.callback.AddListener((data) => { OnPointerClickDelegate((PointerEventData)data); });
+        trigger3.triggers.Add(entry3);
     }
 
 	void Start() {
-        GM = GameObject.Find("GameMaster").GetComponent<GameMaster>();
-        transform.Translate(0, 0.5f, 0);
     }
 
     public void OnPointerClickDelegate(PointerEventData data)
@@ -102,6 +125,14 @@ public class PlayerController : NetworkBehaviour
         {
             Debug.Log(data.selectedObject);
             CmdTogglePause();
+        }
+        if(data.rawPointerPress == quitText.gameObject)
+        {
+            if(Network.connections.Length > 0)
+            {
+                Network.CloseConnection(Network.connections[0], true);
+            }
+            Application.Quit();
         }
         
     }   
