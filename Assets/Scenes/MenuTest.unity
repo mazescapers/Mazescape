@@ -175,6 +175,127 @@ MonoBehaviour:
     i15: 0
   m_ServerOnly: 1
   m_LocalPlayerAuthority: 0
+<<<<<<< HEAD
+--- !u!1 &41078813
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100006, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
+  m_PrefabInternal: {fileID: 944464928}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 41078814}
+  - 20: {fileID: 528800957}
+  - 124: {fileID: 41078820}
+  - 92: {fileID: 41078819}
+  - 81: {fileID: 41078818}
+  - 114: {fileID: 41078817}
+  - 114: {fileID: 41078816}
+  - 114: {fileID: 41078815}
+  m_Layer: 0
+  m_Name: Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &41078814
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400006, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
+  m_PrefabInternal: {fileID: 944464928}
+  m_GameObject: {fileID: 41078813}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 330085438}
+  - {fileID: 1915659038}
+  m_Father: {fileID: 1426781617}
+  m_RootOrder: 1
+--- !u!114 &41078815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114000011535648942, guid: 691bf3e71b387435bb6304e28d671b2f,
+    type: 2}
+  m_PrefabInternal: {fileID: 944464928}
+  m_GameObject: {fileID: 41078813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -768656878, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &41078816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400008, guid: 691bf3e71b387435bb6304e28d671b2f,
+    type: 2}
+  m_PrefabInternal: {fileID: 944464928}
+  m_GameObject: {fileID: 41078813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1156c073149742478887bb24456f32d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalGainDb: 0
+  worldScale: 1
+  occlusionMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  quality: 2
+--- !u!114 &41078817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400006, guid: 691bf3e71b387435bb6304e28d671b2f,
+    type: 2}
+  m_PrefabInternal: {fileID: 944464928}
+  m_GameObject: {fileID: 41078813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6788e8e1b3f7447db6657ef0959d3ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  directRender: 1
+  keepStereoUpdated: 0
+  stereoMultiplier: 1
+  matchMonoFOV: 0
+  matchByZoom: 0
+  centerOfInterest: {fileID: 0}
+  radiusOfInterest: 0
+  checkStereoComfort: 1
+  stereoAdjustSmoothing: 0.1
+  screenParallax: 0
+  stereoPaddingX: 0
+  stereoPaddingY: 0
+--- !u!81 &41078818
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8100000, guid: 691bf3e71b387435bb6304e28d671b2f,
+    type: 2}
+  m_PrefabInternal: {fileID: 944464928}
+  m_GameObject: {fileID: 41078813}
+  m_Enabled: 1
+--- !u!92 &41078819
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 9246874, guid: 691bf3e71b387435bb6304e28d671b2f,
+    type: 2}
+  m_PrefabInternal: {fileID: 944464928}
+  m_GameObject: {fileID: 41078813}
+  m_Enabled: 1
+--- !u!124 &41078820
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 12400004, guid: 691bf3e71b387435bb6304e28d671b2f,
+    type: 2}
+  m_PrefabInternal: {fileID: 944464928}
+  m_GameObject: {fileID: 41078813}
+  m_Enabled: 1
+=======
+>>>>>>> refs/remotes/origin/Adam
 --- !u!1 &43674550
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,7 +408,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 43674550}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
+  m_Script: {fileID: 11500000, guid: 240c61e1a31ec7a42b2a3ef1e1648fa0, type: 3}
+=======
   m_Script: {fileID: 11500000, guid: 4bee97295ed966f49a788c321cda7b14, type: 3}
+>>>>>>> refs/remotes/origin/Adam
   m_Name: 
   m_EditorClassIdentifier: 
   locationForStrategist: {fileID: 0}
@@ -327,7 +452,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
+<<<<<<< HEAD
+  m_Text: Menu 1
+=======
   m_Text: Host a Game
+>>>>>>> refs/remotes/origin/Adam
 --- !u!222 &43674555
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -403,6 +532,8 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+<<<<<<< HEAD
+=======
   - eventID: 0
     callback:
       m_PersistentCalls:
@@ -437,6 +568,7 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+>>>>>>> refs/remotes/origin/Adam
   delegates: []
 --- !u!114 &97288553
 MonoBehaviour:
@@ -446,7 +578,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 97288550}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
+  m_Script: {fileID: 11500000, guid: 240c61e1a31ec7a42b2a3ef1e1648fa0, type: 3}
+=======
   m_Script: {fileID: 11500000, guid: 4bee97295ed966f49a788c321cda7b14, type: 3}
+>>>>>>> refs/remotes/origin/Adam
   m_Name: 
   m_EditorClassIdentifier: 
   locationForStrategist: {fileID: 0}
@@ -493,6 +629,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 97288550}
+<<<<<<< HEAD
+--- !u!1 &330085437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100002, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
+  m_PrefabInternal: {fileID: 944464928}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 330085438}
+  - 20: {fileID: 330085441}
+  - 124: {fileID: 330085440}
+  - 114: {fileID: 330085439}
+  m_Layer: 0
+  m_Name: Camera Left
+=======
 --- !u!1 &212529359
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,11 +658,86 @@ GameObject:
   - 114: {fileID: 212529361}
   m_Layer: 5
   m_Name: Back button
+>>>>>>> refs/remotes/origin/Adam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
+--- !u!4 &330085438
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400002, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
+  m_PrefabInternal: {fileID: 944464928}
+  m_GameObject: {fileID: 330085437}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.03, y: -0, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 41078814}
+  m_RootOrder: 0
+--- !u!114 &330085439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: 691bf3e71b387435bb6304e28d671b2f,
+    type: 2}
+  m_PrefabInternal: {fileID: 944464928}
+  m_GameObject: {fileID: 330085437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c9cfdc6c389e2742aa40f991195d828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eye: 0
+  toggleCullingMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!124 &330085440
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 12400002, guid: 691bf3e71b387435bb6304e28d671b2f,
+    type: 2}
+  m_PrefabInternal: {fileID: 944464928}
+  m_GameObject: {fileID: 330085437}
+  m_Enabled: 1
+--- !u!20 &330085441
+Camera:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2000002, guid: 691bf3e71b387435bb6304e28d671b2f,
+    type: 2}
+  m_PrefabInternal: {fileID: 944464928}
+  m_GameObject: {fileID: 330085437}
+  m_Enabled: 0
+  serializedVersion: 2
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 1}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0.5
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+  m_StereoMirrorMode: 0
+=======
 --- !u!224 &212529360
 RectTransform:
   m_ObjectHideFlags: 0
@@ -649,6 +875,7 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 212529359}
+>>>>>>> refs/remotes/origin/Adam
 --- !u!1 &379198460
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,7 +890,11 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
+<<<<<<< HEAD
+  m_IsActive: 0
+=======
   m_IsActive: 1
+>>>>>>> refs/remotes/origin/Adam
 --- !u!4 &379198461
 Transform:
   m_ObjectHideFlags: 0
@@ -678,6 +909,154 @@ Transform:
   - {fileID: 1426781617}
   m_Father: {fileID: 0}
   m_RootOrder: 5
+<<<<<<< HEAD
+--- !u!1 &460435765
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 171526, guid: 60270cf52a5e94998a5a335989159738, type: 2}
+  m_PrefabInternal: {fileID: 1391081974}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 460435766}
+  - 114: {fileID: 460435768}
+  - 23: {fileID: 460435767}
+  m_Layer: 2
+  m_Name: GvrReticle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &460435766
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 482300, guid: 60270cf52a5e94998a5a335989159738, type: 2}
+  m_PrefabInternal: {fileID: 1391081974}
+  m_GameObject: {fileID: 460435765}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1426781617}
+  m_RootOrder: 0
+--- !u!23 &460435767
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2301146, guid: 60270cf52a5e94998a5a335989159738,
+    type: 2}
+  m_PrefabInternal: {fileID: 1391081974}
+  m_GameObject: {fileID: 460435765}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4cb1460f617514a888f47071314ccdae, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedWireframeHidden: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!114 &460435768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11446276, guid: 60270cf52a5e94998a5a335989159738,
+    type: 2}
+  m_PrefabInternal: {fileID: 1391081974}
+  m_GameObject: {fileID: 460435765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66c63f8350cb04a2683f8606cc8d36f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reticleSegments: 20
+  reticleGrowthSpeed: 8
+--- !u!1 &482402061
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100004, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
+  m_PrefabInternal: {fileID: 944464928}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1426781617}
+  - 114: {fileID: 482402062}
+  m_Layer: 0
+  m_Name: GvrHead
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &482402062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400004, guid: 691bf3e71b387435bb6304e28d671b2f,
+    type: 2}
+  m_PrefabInternal: {fileID: 944464928}
+  m_GameObject: {fileID: 482402061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1578549c7fcc4f6fa1b063992091672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackRotation: 1
+  trackPosition: 1
+  target: {fileID: 0}
+  updateEarly: 0
+--- !u!20 &528800957
+Camera:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2000004, guid: 691bf3e71b387435bb6304e28d671b2f,
+    type: 2}
+  m_PrefabInternal: {fileID: 944464928}
+  m_GameObject: {fileID: 41078813}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 1}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+  m_StereoMirrorMode: 0
+--- !u!1 &605231517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+=======
 --- !u!20 &528800957 stripped
 Camera:
   m_PrefabParentObject: {fileID: 2000004, guid: 691bf3e71b387435bb6304e28d671b2f,
@@ -688,6 +1067,7 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+>>>>>>> refs/remotes/origin/Adam
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 605231521}
@@ -770,7 +1150,10 @@ RectTransform:
   m_Children:
   - {fileID: 642827839}
   - {fileID: 97288551}
+<<<<<<< HEAD
+=======
   - {fileID: 1063080697}
+>>>>>>> refs/remotes/origin/Adam
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
@@ -854,7 +1237,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 642827838}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
+  m_Script: {fileID: 11500000, guid: 240c61e1a31ec7a42b2a3ef1e1648fa0, type: 3}
+=======
   m_Script: {fileID: 11500000, guid: 4bee97295ed966f49a788c321cda7b14, type: 3}
+>>>>>>> refs/remotes/origin/Adam
   m_Name: 
   m_EditorClassIdentifier: 
   locationForStrategist: {fileID: 0}
@@ -912,6 +1299,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b55f22f8f35bd14586693e5b9c6f79b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+  GM: {fileID: 20816009}
+=======
+>>>>>>> refs/remotes/origin/Adam
 --- !u!1 &670296917
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,6 +1369,8 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+<<<<<<< HEAD
+=======
   - eventID: 0
     callback:
       m_PersistentCalls:
@@ -1012,6 +1405,7 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+>>>>>>> refs/remotes/origin/Adam
   delegates: []
 --- !u!114 &670296920
 MonoBehaviour:
@@ -1021,13 +1415,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 670296917}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
+  m_Script: {fileID: 11500000, guid: 240c61e1a31ec7a42b2a3ef1e1648fa0, type: 3}
+=======
   m_Script: {fileID: 11500000, guid: 4bee97295ed966f49a788c321cda7b14, type: 3}
+>>>>>>> refs/remotes/origin/Adam
   m_Name: 
   m_EditorClassIdentifier: 
   locationForStrategist: {fileID: 0}
   locationForGround: {fileID: 0}
   isClickable: 1
+<<<<<<< HEAD
+  isBackButton: 1
+=======
   isBackButton: 0
+>>>>>>> refs/remotes/origin/Adam
   isRecursiveBackButton: 1
 --- !u!114 &670296921
 MonoBehaviour:
@@ -1068,6 +1470,22 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 670296917}
+<<<<<<< HEAD
+--- !u!1 &923425837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 923425838}
+  - 222: {fileID: 923425842}
+  - 114: {fileID: 923425841}
+  - 114: {fileID: 923425840}
+  - 114: {fileID: 923425839}
+  m_Layer: 5
+  m_Name: Submenu 1-2
+=======
 --- !u!1 &754526259
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,11 +1501,20 @@ GameObject:
   - 114: {fileID: 754526261}
   m_Layer: 5
   m_Name: Back Button
+>>>>>>> refs/remotes/origin/Adam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
+--- !u!224 &923425838
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 923425837}
+=======
 --- !u!224 &754526260
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1095,10 +1522,28 @@ RectTransform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 754526259}
+>>>>>>> refs/remotes/origin/Adam
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+<<<<<<< HEAD
+  m_Children:
+  - {fileID: 1301944809}
+  m_Father: {fileID: 43674551}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0.000030517578}
+  m_SizeDelta: {x: 400, y: 70}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &923425839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 923425837}
+=======
   m_Children: []
   m_Father: {fileID: 951700205}
   m_RootOrder: 1
@@ -1114,6 +1559,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 754526259}
+>>>>>>> refs/remotes/origin/Adam
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
@@ -1124,7 +1570,11 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
+<<<<<<< HEAD
+        - m_Target: {fileID: 923425840}
+=======
         - m_Target: {fileID: 754526262}
+>>>>>>> refs/remotes/origin/Adam
           m_MethodName: Clicked
           m_Mode: 1
           m_Arguments:
@@ -1137,6 +1587,31 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+<<<<<<< HEAD
+  delegates: []
+--- !u!114 &923425840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 923425837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 240c61e1a31ec7a42b2a3ef1e1648fa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locationForStrategist: {fileID: 0}
+  locationForGround: {fileID: 0}
+  isClickable: 0
+  isBackButton: 0
+  isRecursiveBackButton: 0
+--- !u!114 &923425841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 923425837}
+=======
   - eventID: 0
     callback:
       m_PersistentCalls:
@@ -1191,6 +1666,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 754526259}
+>>>>>>> refs/remotes/origin/Adam
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
@@ -1217,6 +1693,76 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
+<<<<<<< HEAD
+  m_Text: Option 2
+--- !u!222 &923425842
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 923425837}
+--- !u!1001 &944464928
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 379198461}
+    m_Modifications:
+    - target: {fileID: 400004, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
+  m_RootGameObject: {fileID: 482402061}
+  m_IsPrefabParent: 0
+--- !u!1 &1260884815
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1260884816}
+  - 222: {fileID: 1260884820}
+  - 114: {fileID: 1260884819}
+  - 114: {fileID: 1260884818}
+  - 114: {fileID: 1260884817}
+  m_Layer: 5
+  m_Name: Menu 2
+=======
   m_Text: Back
 --- !u!222 &754526264
 CanvasRenderer:
@@ -1240,11 +1786,39 @@ GameObject:
   - 114: {fileID: 761177989}
   m_Layer: 5
   m_Name: Return to Top
+>>>>>>> refs/remotes/origin/Adam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
+--- !u!224 &1260884816
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1260884815}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 0.99999976, z: 0.99999976}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_Children:
+  - {fileID: 1620542832}
+  m_Father: {fileID: 97288551}
+  m_RootOrder: 2
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -99.5}
+  m_SizeDelta: {x: 400, y: 70}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1260884817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1260884815}
+=======
 --- !u!224 &761177988
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2479,6 +3053,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1518354731}
+>>>>>>> refs/remotes/origin/Adam
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
@@ -2489,7 +3064,11 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
+<<<<<<< HEAD
+        - m_Target: {fileID: 1260884818}
+=======
         - m_Target: {fileID: 1518354734}
+>>>>>>> refs/remotes/origin/Adam
           m_MethodName: Clicked
           m_Mode: 1
           m_Arguments:
@@ -2502,6 +3081,18 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+<<<<<<< HEAD
+  delegates: []
+--- !u!114 &1260884818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1260884815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 240c61e1a31ec7a42b2a3ef1e1648fa0, type: 3}
+=======
   - eventID: 0
     callback:
       m_PersistentCalls:
@@ -2547,10 +3138,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bee97295ed966f49a788c321cda7b14, type: 3}
+>>>>>>> refs/remotes/origin/Adam
   m_Name: 
   m_EditorClassIdentifier: 
   locationForStrategist: {fileID: 0}
   locationForGround: {fileID: 0}
+<<<<<<< HEAD
+  isClickable: 1
+  isBackButton: 0
+  isRecursiveBackButton: 0
+--- !u!114 &1260884819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1260884815}
+=======
   isClickable: 0
   isBackButton: 0
   isRecursiveBackButton: 0
@@ -2561,6 +3164,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1518354731}
+>>>>>>> refs/remotes/origin/Adam
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
@@ -2576,7 +3180,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+<<<<<<< HEAD
+    m_FontSize: 60
+=======
     m_FontSize: 40
+>>>>>>> refs/remotes/origin/Adam
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -2587,6 +3195,16 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
+<<<<<<< HEAD
+  m_Text: Menu 2
+--- !u!222 &1260884820
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1260884815}
+--- !u!1 &1301944808
+=======
   m_Text: This is some unclickable menu text.
 --- !u!222 &1518354736
 CanvasRenderer:
@@ -2596,12 +3214,22 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1518354731}
 --- !u!1 &1623343719
+>>>>>>> refs/remotes/origin/Adam
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
+<<<<<<< HEAD
+  - 224: {fileID: 1301944809}
+  - 222: {fileID: 1301944813}
+  - 114: {fileID: 1301944812}
+  - 114: {fileID: 1301944811}
+  - 114: {fileID: 1301944810}
+  m_Layer: 5
+  m_Name: Return to top
+=======
   - 224: {fileID: 1623343720}
   - 222: {fileID: 1623343724}
   - 114: {fileID: 1623343723}
@@ -2609,22 +3237,41 @@ GameObject:
   - 114: {fileID: 1623343721}
   m_Layer: 5
   m_Name: Unclickable
+>>>>>>> refs/remotes/origin/Adam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
+--- !u!224 &1301944809
+=======
 --- !u!224 &1623343720
+>>>>>>> refs/remotes/origin/Adam
 RectTransform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 1301944808}
+=======
   m_GameObject: {fileID: 1623343719}
+>>>>>>> refs/remotes/origin/Adam
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
   m_Children: []
+<<<<<<< HEAD
+  m_Father: {fileID: 923425838}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -10.600021}
+  m_SizeDelta: {x: 400, y: 70}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1301944810
+=======
   m_Father: {fileID: 97288551}
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2633,11 +3280,16 @@ RectTransform:
   m_SizeDelta: {x: 400, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1623343721
+>>>>>>> refs/remotes/origin/Adam
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 1301944808}
+=======
   m_GameObject: {fileID: 1623343719}
+>>>>>>> refs/remotes/origin/Adam
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
@@ -2648,7 +3300,11 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
+<<<<<<< HEAD
+        - m_Target: {fileID: 1301944811}
+=======
         - m_Target: {fileID: 1623343722}
+>>>>>>> refs/remotes/origin/Adam
           m_MethodName: Clicked
           m_Mode: 1
           m_Arguments:
@@ -2662,28 +3318,50 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+<<<<<<< HEAD
+--- !u!114 &1301944811
+=======
 --- !u!114 &1623343722
+>>>>>>> refs/remotes/origin/Adam
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 1301944808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 240c61e1a31ec7a42b2a3ef1e1648fa0, type: 3}
+=======
   m_GameObject: {fileID: 1623343719}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bee97295ed966f49a788c321cda7b14, type: 3}
+>>>>>>> refs/remotes/origin/Adam
   m_Name: 
   m_EditorClassIdentifier: 
   locationForStrategist: {fileID: 0}
   locationForGround: {fileID: 0}
+<<<<<<< HEAD
+  isClickable: 1
+  isBackButton: 1
+  isRecursiveBackButton: 1
+--- !u!114 &1301944812
+=======
   isClickable: 0
   isBackButton: 0
   isRecursiveBackButton: 0
 --- !u!114 &1623343723
+>>>>>>> refs/remotes/origin/Adam
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 1301944808}
+=======
   m_GameObject: {fileID: 1623343719}
+>>>>>>> refs/remotes/origin/Adam
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
@@ -2710,12 +3388,92 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
+<<<<<<< HEAD
+  m_Text: Return to top
+--- !u!222 &1301944813
+=======
   m_Text: MAZESCAPE
 --- !u!222 &1623343724
+>>>>>>> refs/remotes/origin/Adam
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 1301944808}
+--- !u!1001 &1391081974
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1426781617}
+    m_Modifications:
+    - target: {fileID: 482300, guid: 60270cf52a5e94998a5a335989159738, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 482300, guid: 60270cf52a5e94998a5a335989159738, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 482300, guid: 60270cf52a5e94998a5a335989159738, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 482300, guid: 60270cf52a5e94998a5a335989159738, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 482300, guid: 60270cf52a5e94998a5a335989159738, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 482300, guid: 60270cf52a5e94998a5a335989159738, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 482300, guid: 60270cf52a5e94998a5a335989159738, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 482300, guid: 60270cf52a5e94998a5a335989159738, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 60270cf52a5e94998a5a335989159738, type: 2}
+  m_RootGameObject: {fileID: 460435765}
+  m_IsPrefabParent: 0
+--- !u!4 &1426781617
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400004, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
+  m_PrefabInternal: {fileID: 944464928}
+  m_GameObject: {fileID: 482402061}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 460435766}
+  - {fileID: 41078814}
+  m_Father: {fileID: 379198461}
+  m_RootOrder: 0
+--- !u!1 &1620542831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1620542832}
+  - 222: {fileID: 1620542836}
+  - 114: {fileID: 1620542835}
+  - 114: {fileID: 1620542834}
+  - 114: {fileID: 1620542833}
+  m_Layer: 5
+  m_Name: Return to top
+=======
   m_GameObject: {fileID: 1623343719}
 --- !u!1 &1629860454
 GameObject:
@@ -2732,11 +3490,20 @@ GameObject:
   - 114: {fileID: 1629860456}
   m_Layer: 5
   m_Name: Example Text 3
+>>>>>>> refs/remotes/origin/Adam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
+--- !u!224 &1620542832
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1620542831}
+=======
 --- !u!224 &1629860455
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2744,11 +3511,27 @@ RectTransform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1629860454}
+>>>>>>> refs/remotes/origin/Adam
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
   m_Children: []
+<<<<<<< HEAD
+  m_Father: {fileID: 1260884816}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 88.90006}
+  m_SizeDelta: {x: 400, y: 70}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1620542833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1620542831}
+=======
   m_Father: {fileID: 1504145288}
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2763,6 +3546,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1629860454}
+>>>>>>> refs/remotes/origin/Adam
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
@@ -2773,7 +3557,11 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
+<<<<<<< HEAD
+        - m_Target: {fileID: 1620542834}
+=======
         - m_Target: {fileID: 1629860457}
+>>>>>>> refs/remotes/origin/Adam
           m_MethodName: Clicked
           m_Mode: 1
           m_Arguments:
@@ -2786,6 +3574,31 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+<<<<<<< HEAD
+  delegates: []
+--- !u!114 &1620542834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1620542831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 240c61e1a31ec7a42b2a3ef1e1648fa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locationForStrategist: {fileID: 0}
+  locationForGround: {fileID: 0}
+  isClickable: 1
+  isBackButton: 1
+  isRecursiveBackButton: 1
+--- !u!114 &1620542835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1620542831}
+=======
   - eventID: 0
     callback:
       m_PersistentCalls:
@@ -2840,6 +3653,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1629860454}
+>>>>>>> refs/remotes/origin/Adam
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
@@ -2855,7 +3669,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+<<<<<<< HEAD
+    m_FontSize: 60
+=======
     m_FontSize: 40
+>>>>>>> refs/remotes/origin/Adam
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -2866,6 +3684,16 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
+<<<<<<< HEAD
+  m_Text: Return to top
+--- !u!222 &1620542836
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1620542831}
+--- !u!1 &1623343719
+=======
   m_Text: This is a nested submenu.
 --- !u!222 &1629860459
 CanvasRenderer:
@@ -2875,12 +3703,22 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1629860454}
 --- !u!1 &1854958392
+>>>>>>> refs/remotes/origin/Adam
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
+<<<<<<< HEAD
+  - 224: {fileID: 1623343720}
+  - 222: {fileID: 1623343724}
+  - 114: {fileID: 1623343723}
+  - 114: {fileID: 1623343722}
+  - 114: {fileID: 1623343721}
+  m_Layer: 5
+  m_Name: Unclickable
+=======
   - 224: {fileID: 1854958393}
   - 222: {fileID: 1854958397}
   - 114: {fileID: 1854958396}
@@ -2888,22 +3726,41 @@ GameObject:
   - 114: {fileID: 1854958394}
   m_Layer: 5
   m_Name: Return to top
+>>>>>>> refs/remotes/origin/Adam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
+--- !u!224 &1623343720
+=======
 --- !u!224 &1854958393
+>>>>>>> refs/remotes/origin/Adam
 RectTransform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 1623343719}
+=======
   m_GameObject: {fileID: 1854958392}
+>>>>>>> refs/remotes/origin/Adam
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
   m_Children: []
+<<<<<<< HEAD
+  m_Father: {fileID: 97288551}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 96.2}
+  m_SizeDelta: {x: 400, y: 70}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1623343721
+=======
   m_Father: {fileID: 1260884816}
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2912,11 +3769,16 @@ RectTransform:
   m_SizeDelta: {x: 400, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1854958394
+>>>>>>> refs/remotes/origin/Adam
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 1623343719}
+=======
   m_GameObject: {fileID: 1854958392}
+>>>>>>> refs/remotes/origin/Adam
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
@@ -2927,7 +3789,11 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
+<<<<<<< HEAD
+        - m_Target: {fileID: 1623343722}
+=======
         - m_Target: {fileID: 1854958395}
+>>>>>>> refs/remotes/origin/Adam
           m_MethodName: Clicked
           m_Mode: 1
           m_Arguments:
@@ -2940,6 +3806,10 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+<<<<<<< HEAD
+  delegates: []
+--- !u!114 &1623343722
+=======
   - eventID: 0
     callback:
       m_PersistentCalls:
@@ -2976,27 +3846,46 @@ MonoBehaviour:
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
 --- !u!114 &1854958395
+>>>>>>> refs/remotes/origin/Adam
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 1623343719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 240c61e1a31ec7a42b2a3ef1e1648fa0, type: 3}
+=======
   m_GameObject: {fileID: 1854958392}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bee97295ed966f49a788c321cda7b14, type: 3}
+>>>>>>> refs/remotes/origin/Adam
   m_Name: 
   m_EditorClassIdentifier: 
   locationForStrategist: {fileID: 0}
   locationForGround: {fileID: 0}
+<<<<<<< HEAD
+  isClickable: 0
+  isBackButton: 0
+  isRecursiveBackButton: 0
+--- !u!114 &1623343723
+=======
   isClickable: 1
   isBackButton: 0
   isRecursiveBackButton: 1
 --- !u!114 &1854958396
+>>>>>>> refs/remotes/origin/Adam
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 1623343719}
+=======
   m_GameObject: {fileID: 1854958392}
+>>>>>>> refs/remotes/origin/Adam
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
@@ -3023,13 +3912,22 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
+<<<<<<< HEAD
+  m_Text: Unclickable
+--- !u!222 &1623343724
+=======
   m_Text: Return to top
 --- !u!222 &1854958397
+>>>>>>> refs/remotes/origin/Adam
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 1623343719}
+=======
   m_GameObject: {fileID: 1854958392}
+>>>>>>> refs/remotes/origin/Adam
 --- !u!1 &1898491301
 GameObject:
   m_ObjectHideFlags: 0
@@ -3109,7 +4007,11 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
+<<<<<<< HEAD
+  m_IsActive: 1
+=======
   m_IsActive: 0
+>>>>>>> refs/remotes/origin/Adam
 --- !u!4 &1907040407
 Transform:
   m_ObjectHideFlags: 0
@@ -3210,6 +4112,99 @@ MonoBehaviour:
   showGUI: 1
   offsetX: 0
   offsetY: 0
+<<<<<<< HEAD
+--- !u!1 &1915659037
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
+  m_PrefabInternal: {fileID: 944464928}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1915659038}
+  - 20: {fileID: 1915659041}
+  - 124: {fileID: 1915659040}
+  - 114: {fileID: 1915659039}
+  m_Layer: 0
+  m_Name: Camera Right
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1915659038
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
+  m_PrefabInternal: {fileID: 944464928}
+  m_GameObject: {fileID: 1915659037}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.03, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 41078814}
+  m_RootOrder: 1
+--- !u!114 &1915659039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: 691bf3e71b387435bb6304e28d671b2f,
+    type: 2}
+  m_PrefabInternal: {fileID: 944464928}
+  m_GameObject: {fileID: 1915659037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c9cfdc6c389e2742aa40f991195d828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eye: 1
+  toggleCullingMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!124 &1915659040
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 12400000, guid: 691bf3e71b387435bb6304e28d671b2f,
+    type: 2}
+  m_PrefabInternal: {fileID: 944464928}
+  m_GameObject: {fileID: 1915659037}
+  m_Enabled: 1
+--- !u!20 &1915659041
+Camera:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2000000, guid: 691bf3e71b387435bb6304e28d671b2f,
+    type: 2}
+  m_PrefabInternal: {fileID: 944464928}
+  m_GameObject: {fileID: 1915659037}
+  m_Enabled: 0
+  serializedVersion: 2
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 1}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0.5
+    y: 0
+    width: 0.5
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+  m_StereoMirrorMode: 0
+=======
+>>>>>>> refs/remotes/origin/Adam
 --- !u!1 &1919032081
 GameObject:
   m_ObjectHideFlags: 0
@@ -3244,7 +4239,11 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
+  m_AnchoredPosition: {x: 0, y: -104.3}
+=======
   m_AnchoredPosition: {x: 0, y: -100}
+>>>>>>> refs/remotes/origin/Adam
   m_SizeDelta: {x: 400, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1919032083
@@ -3276,6 +4275,8 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+<<<<<<< HEAD
+=======
   - eventID: 0
     callback:
       m_PersistentCalls:
@@ -3310,6 +4311,7 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+>>>>>>> refs/remotes/origin/Adam
   delegates: []
 --- !u!114 &1919032084
 MonoBehaviour:
@@ -3319,7 +4321,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1919032081}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
+  m_Script: {fileID: 11500000, guid: 240c61e1a31ec7a42b2a3ef1e1648fa0, type: 3}
+=======
   m_Script: {fileID: 11500000, guid: 4bee97295ed966f49a788c321cda7b14, type: 3}
+>>>>>>> refs/remotes/origin/Adam
   m_Name: 
   m_EditorClassIdentifier: 
   locationForStrategist: {fileID: 0}
@@ -3366,6 +4372,8 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1919032081}
+<<<<<<< HEAD
+=======
 --- !u!1 &1958994064
 GameObject:
   m_ObjectHideFlags: 0
@@ -3523,6 +4531,7 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1958994064}
+>>>>>>> refs/remotes/origin/Adam
 --- !u!1 &1968190392
 GameObject:
   m_ObjectHideFlags: 0
@@ -3590,6 +4599,8 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+<<<<<<< HEAD
+=======
   - eventID: 0
     callback:
       m_PersistentCalls:
@@ -3624,6 +4635,7 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+>>>>>>> refs/remotes/origin/Adam
   delegates: []
 --- !u!114 &1968190395
 MonoBehaviour:
@@ -3633,12 +4645,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1968190392}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
+  m_Script: {fileID: 11500000, guid: 240c61e1a31ec7a42b2a3ef1e1648fa0, type: 3}
+=======
   m_Script: {fileID: 11500000, guid: 4bee97295ed966f49a788c321cda7b14, type: 3}
+>>>>>>> refs/remotes/origin/Adam
   m_Name: 
   m_EditorClassIdentifier: 
   locationForStrategist: {fileID: 0}
   locationForGround: {fileID: 0}
+<<<<<<< HEAD
+  isClickable: 0
+=======
   isClickable: 1
+>>>>>>> refs/remotes/origin/Adam
   isBackButton: 0
   isRecursiveBackButton: 0
 --- !u!114 &1968190396

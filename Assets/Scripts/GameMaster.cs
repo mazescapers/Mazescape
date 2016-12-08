@@ -23,6 +23,7 @@ public class GameMaster : NetworkBehaviour {
 
     public static int size_x;
     public static int size_z;
+	public uint serverPlayer = 0;
     public static float wall_width;
 
     public GameObject Maze;

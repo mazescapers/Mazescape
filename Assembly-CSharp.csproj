@@ -87,11 +87,13 @@
      <Compile Include="Assets\GoogleVR\Scripts\UI\IGvrGazeResponder.cs" />
      <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrFPS.cs" />
      <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrIntent.cs" />
-     <Compile Include="Assets\Scripts\Activatable.cs" />
+     <Compile Include="Assets\Scripts\BeaconBehaviour.cs" />
      <Compile Include="Assets\Scripts\Cell.cs" />
-     <Compile Include="Assets\Scripts\Door.cs" />
+     <Compile Include="Assets\Scripts\ColorManage.cs" />
      <Compile Include="Assets\Scripts\GameMaster.cs" />
      <Compile Include="Assets\Scripts\Maze.cs" />
+     <Compile Include="Assets\Scripts\Activatable.cs" />
+     <Compile Include="Assets\Scripts\Door.cs" />
      <Compile Include="Assets\Scripts\MazeNetworkLobbyManager.cs" />
      <Compile Include="Assets\Scripts\Menu.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
