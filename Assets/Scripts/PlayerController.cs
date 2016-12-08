@@ -69,6 +69,11 @@ public class PlayerController : NetworkBehaviour
         {
             myBody.velocity = Vector3.zero;
         }
+
+        if(Input.GetButtonUp("Fire1"))
+        {
+            moving = false;
+        }
         Vector3 rotation = body.transform.rotation.eulerAngles;
         rotation.y = head.transform.rotation.eulerAngles.y;
         body.transform.rotation = Quaternion.Euler(rotation);
@@ -180,7 +185,7 @@ public class PlayerController : NetworkBehaviour
 	void Start() {
 
         GM = GameObject.Find("GameMaster").GetComponent<GameMaster>();
-        transform.Translate(0, 0.5f, 0);
+        transform.Translate(0, 0, 0);
 		if (GM.serverPlayer == 0)
 			GM.serverPlayer = netId.Value;
 		if (IsServerPlayer()) {
