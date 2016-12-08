@@ -5,6 +5,7 @@ public class Door : Activatable {
 	public float raiseHeight, raiseSpeed;
 	private float currentHeight = 0;
 	private bool raising = false;
+	private Renderer mRender;
 	// Use this for initialization
 	void Start () {
 	
@@ -17,6 +18,11 @@ public class Door : Activatable {
 		} else if (!raising && currentHeight > raiseHeight) {
 			MoveUpward (-raiseSpeed);
 		}
+	}
+
+	public void SetRenderer() {
+		mRender = this.GetComponent<Renderer> ();
+		mRender.material.color = Color.gray;
 	}
 
 	void MoveUpward(float amount) {

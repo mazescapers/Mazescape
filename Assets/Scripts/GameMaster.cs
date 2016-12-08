@@ -18,6 +18,8 @@ public class GameMaster : NetworkBehaviour {
     public int END_Z;
 
     public GameObject Beacon;
+	public GameObject doorCube;
+	private Cell exitCell;
 
     public Color[] player_color;
 
@@ -88,6 +90,7 @@ public class GameMaster : NetworkBehaviour {
         // Find and mark the path from the start to the exit
         path = new Stack<int[]>();
         walk(START_X, START_Z);
+
         //markPath(path);
 
         // Find dead ends
@@ -103,11 +106,12 @@ public class GameMaster : NetworkBehaviour {
                     cell[0] = i;
                     cell[1] = j;
                     dead_ends.Add(cell);
-                    maze[i][j].floor.GetComponent<Renderer>().material.color = Color.yellow;
+                    //maze[i][j].floor.GetComponent<Renderer>().material.color = Color.yellow;
                 }
             }
         }
-
+		Debug.Log ("There are " + dead_ends.Count + " dead ends in this maze.");
+		ChooseSwitches ();
         NetworkServer.Spawn(Maze);
     }
 
@@ -206,10 +210,22 @@ public class GameMaster : NetworkBehaviour {
     }
 
 	void ChooseSwitches() {
-		for (int i = 0; i < dead_ends.Count; i++) {
+		int numDeadEnds = dead_ends.Count;
+		doorCube.transform.position
+			= maze [dead_ends [numDeadEnds - 1] [0]] [dead_ends [numDeadEnds - 1] [1]].transform.position;
+		exitCell = maze [dead_ends [numDeadEnds - 1] [0]] [dead_ends [numDeadEnds - 1] [1]];
+		Debug.Log ("Put exit at dead end " + (numDeadEnds - 1));
+		NetworkServer.Spawn (doorCube);
+		Multidoor door = doorCube.gameObject.AddComponent<Multidoor>();
+		door.numSwitches = numDeadEnds - 1;
+		for (int i = 0; i < numDeadEnds-1; i++) {
 			// Need to set the switch component's activatable object to the single multidoor
 			// that is above the exit.
-			maze[dead_ends[i][0]][dead_ends[i][0]].gameObject.AddComponent<Switch>();
+			Debug.Log("Switch at dead end " + i);
+			Switch thisSwitch = maze[dead_ends[i][0]][dead_ends[i][1]].floor.gameObject.AddComponent<Switch>();
+			thisSwitch.connection = door;
+			// Have to set the renderer after attaching the switch script
+			thisSwitch.SetRenderer ();
 		}
 	}
 
