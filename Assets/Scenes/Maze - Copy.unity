@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44692534, g: 0.49678725, b: 0.5750856, a: 1}
+  m_IndirectSpecularColor: {r: 0.44692534, g: 0.49678725, b: 0.57508564, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
   Beacon: {fileID: 1000013984846678, guid: b975a1dd18070421ea6c6f722f9e3240, type: 2}
   player_color: []
   serverPlayer: 0
-  Maze: {fileID: 1000012022287656, guid: 2f17f230bbf24ce488a4022d5b45ce85, type: 2}
+  Maze: {fileID: 1000012022287656, guid: 27f903f65e2545d41b1713bea00810e9, type: 2}
   CellBase: {fileID: 1000014063209050, guid: 0675c88f9dc128b449d3c5a2e82d6cfc, type: 2}
 --- !u!1001 &448058436
 Prefab:
@@ -190,22 +190,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 27
-    i1: 90
-    i2: 176
-    i3: 113
-    i4: 29
-    i5: 236
-    i6: 19
-    i7: 244
-    i8: 90
-    i9: 44
-    i10: 216
-    i11: 234
-    i12: 68
-    i13: 89
-    i14: 33
-    i15: 236
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
 --- !u!4 &482402063
@@ -582,7 +582,7 @@ MonoBehaviour:
   m_SpawnPrefabs:
   - {fileID: 1000013984846678, guid: b975a1dd18070421ea6c6f722f9e3240, type: 2}
   - {fileID: 1000014063209050, guid: 0675c88f9dc128b449d3c5a2e82d6cfc, type: 2}
-  - {fileID: 1000012022287656, guid: 2f17f230bbf24ce488a4022d5b45ce85, type: 2}
+  - {fileID: 0}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:

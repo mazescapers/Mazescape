@@ -20,7 +20,9 @@ public class PlayerController : NetworkBehaviour
 //    public Canvas canvas;
 //    public Text pauseText;
 //    public Text beaconText;
+    [SyncVar]
     public int playerNum;
+
     public bool usingColorManage;
     public ColorManage cm;
 	List<GameObject> beacons;
@@ -36,8 +38,10 @@ public class PlayerController : NetworkBehaviour
 
     // Update is called once per frame
     void Update () {
-        
-	//if (!isLocalPlayer || GM == null || GM.paused)
+        //if(usingColorManage)
+            //body.GetComponent<Renderer>().material.color = cm.getColor(playerNum);
+
+        //if (!isLocalPlayer || GM == null || GM.paused)
         if (!isLocalPlayer || GM == null)
         {
             return;
