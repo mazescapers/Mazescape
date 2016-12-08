@@ -17,10 +17,16 @@ public class ColorManage : NetworkBehaviour
 	public GameObject colSelPrefab;
 
     Color[] cList = {Color.red, Color.blue, Color.cyan, Color.green, Color.yellow };
+    string[] cListS = { "Red", "Blue", "Cyan", "Green", "Yellow" };
 
     public Color getColor(int playnum)
     {
         return cList[playnum % cList.Length];
+    }
+
+    public string getColorName(int playnum)
+    {
+        return cListS[playnum % cListS.Length];
     }
 
     public void assignNumber(PlayerController pc)
