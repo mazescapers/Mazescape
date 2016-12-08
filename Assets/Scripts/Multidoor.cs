@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Multidoor : Activatable {
-	public float raiseHeight = 8, raiseSpeed = 1;
+	public float raiseHeight = 1.0f, raiseSpeed = 0.02f;
 	private float currentHeight = 0;
 	private bool raising = false;
 	public int numSwitches;
@@ -36,11 +36,12 @@ public class Multidoor : Activatable {
 
 	public override void PositiveSignal () {
 		switchesDown++;
-
+		DoorCheck ();
 	}
 
 	public override void NegativeSignal () {
 		switchesDown--;
+		DoorCheck ();
 	}
 
 	public void DoorCheck() {
