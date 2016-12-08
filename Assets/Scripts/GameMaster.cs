@@ -205,6 +205,14 @@ public class GameMaster : NetworkBehaviour {
         }
     }
 
+	void ChooseSwitches() {
+		for (int i = 0; i < dead_ends.Count; i++) {
+			// Need to set the switch component's activatable object to the single multidoor
+			// that is above the exit.
+			maze[dead_ends[i][0]][dead_ends[i][0]].gameObject.AddComponent<Switch>();
+		}
+	}
+
 	public void PlaceBeacon(float x, float z) {
 		Beacon.SetActive (true);
 		GameObject newBeacon = (GameObject) Instantiate (Beacon, new Vector3(x, 0, z), Quaternion.identity);
