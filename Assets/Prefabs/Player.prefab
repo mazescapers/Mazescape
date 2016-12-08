@@ -41,6 +41,7 @@ GameObject:
   - 114: {fileID: 114000010240400090}
   - 114: {fileID: 114000011459699702}
   - 54: {fileID: 54000012964268880}
+  - 114: {fileID: 114000010978675934}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -228,6 +229,25 @@ MonoBehaviour:
   cm: {fileID: 0}
   HUD: {fileID: 223000011237083890, guid: 40dc076bc9bd798489143341d2cca946, type: 2}
   UI: {fileID: 223000011732589844, guid: 2ac567878ce86fd40a3b88970bc6b0e8, type: 2}
+--- !u!114 &114000010978675934
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011046606786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Target: {fileID: 4000010368628416}
+  m_ChildIndex: 0
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_MovementThreshold: 0.001
+  m_InterpolateRotation: 0.5
+  m_InterpolateMovement: 0.5
 --- !u!114 &114000011459699702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -241,7 +261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TransformSyncMode: 1
   m_SendInterval: 0.1
-  m_SyncRotationAxis: 4
+  m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
   m_SyncSpin: 0
   m_MovementTheshold: 0.001
