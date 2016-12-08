@@ -37,8 +37,8 @@ public class PlayerController : NetworkBehaviour
     // Update is called once per frame
     void Update () {
         
-	//if (!isLocalPlayer || GM == null || GM.paused)
-        if (!isLocalPlayer || GM == null)
+	if (!isLocalPlayer || GM == null || GM.paused)
+        //if (!isLocalPlayer || GM == null)
         {
             return;
         }
@@ -54,6 +54,7 @@ public class PlayerController : NetworkBehaviour
 			}
 			return;
 		}
+
         if(Input.GetButtonDown("Fire1")) {
             moving = true;
         }
@@ -72,6 +73,11 @@ public class PlayerController : NetworkBehaviour
         Vector3 rotation = body.transform.rotation.eulerAngles;
         rotation.y = head.transform.rotation.eulerAngles.y;
         body.transform.rotation = Quaternion.Euler(rotation);
+
+        if(Input.GetButtonUp("Fire1"))
+        {
+            moving = false;
+        }
 
 	////if (Input.GetButtonUp("Fire1"))
  //       if(!GM.paused)
@@ -120,14 +126,13 @@ public class PlayerController : NetworkBehaviour
     {
         GM = GameObject.Find("GameMaster").GetComponent<GameMaster>();
         transform.Translate(0, 0.5f, 0);
-
-        body = GameObject.Find("Body");
+        body = transform.FindChild("Body").gameObject;
 
         head = (GvrHead)Instantiate(head, transform);
         reticle = (GvrReticle)Instantiate(reticle, head.transform);
-        cam = GameObject.Find("Camera").GetComponent<Camera>();
+        cam = head.transform.FindChild("Camera").GetComponent<Camera>();
 
-	//canvas = (Canvas)Instantiate(canvas, transform);
+	    //canvas = (Canvas)Instantiate(canvas, transform);
         //canvas.worldCamera = cam;
 
         HUD = (Canvas)Instantiate(HUD, cam.transform);
@@ -135,11 +140,12 @@ public class PlayerController : NetworkBehaviour
         HUD.worldCamera = cam;
 
         UI = (Canvas)Instantiate(UI, body.transform);
+        UI.transform.localPosition = new Vector3(0f, 100f, 10f);
         UI.worldCamera = cam;
 
-        pauseText = GameObject.Find("Pause").GetComponent<Text>();
-        unpauseText = GameObject.Find("Unpause").GetComponent<Text>();
-        quitText = GameObject.Find("Quit").GetComponent<Text>();
+        pauseText = UI.transform.FindChild("Pause").GetComponent<Text>();
+        unpauseText = pauseText.transform.FindChild("Unpause").GetComponent<Text>();
+        quitText = pauseText.transform.FindChild("Quit").GetComponent<Text>();
 
         EventTrigger trigger1 = pauseText.GetComponent<EventTrigger>();
         EventTrigger.Entry entry1 = new EventTrigger.Entry();
@@ -180,7 +186,6 @@ public class PlayerController : NetworkBehaviour
 	void Start() {
 
         GM = GameObject.Find("GameMaster").GetComponent<GameMaster>();
-        transform.Translate(0, 0.5f, 0);
 		if (GM.serverPlayer == 0)
 			GM.serverPlayer = netId.Value;
 		if (IsServerPlayer()) {
