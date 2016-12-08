@@ -11,15 +11,15 @@ public class PlayerController : NetworkBehaviour
 {
     public static bool paused;
     public GameObject beaconPrefab;
-    public GameObject visor;
+//    public GameObject visor;
     public GameObject body;
     public GvrHead head;
     public GvrReticle reticle;
     public GameMaster GM;
     Camera cam;
-    public Canvas canvas;
-    public Text pauseText;
-    public Text beaconText;
+//    public Canvas canvas;
+//    public Text pauseText;
+//    public Text beaconText;
     public int playerNum;
     public bool usingColorManage;
     public ColorManage cm;
@@ -73,38 +73,38 @@ public class PlayerController : NetworkBehaviour
         rotation.y = head.transform.rotation.eulerAngles.y;
         body.transform.rotation = Quaternion.Euler(rotation);
 
-	//if (Input.GetButtonUp("Fire1"))
-        if(!GM.paused)
-        {
-	    //moving = false;
-            if (Input.GetButtonDown("Fire1"))
-            {
-                moving = true;
-            }
+	////if (Input.GetButtonUp("Fire1"))
+ //       if(!GM.paused)
+ //       {
+	//    //moving = false;
+ //           if (Input.GetButtonDown("Fire1"))
+ //           {
+ //               moving = true;
+ //           }
 
-            Rigidbody myBody = gameObject.GetComponent<Rigidbody>();
-            if (moving)
-            {
-                Vector3 velocity = myBody.velocity;
-                velocity.x = head.transform.forward.x;
-                velocity.z = head.transform.forward.z;
-                myBody.velocity = velocity;
-            }
-            else
-            {
-                myBody.velocity = Vector3.zero;
-            }
+ //           Rigidbody myBody = gameObject.GetComponent<Rigidbody>();
+ //           if (moving)
+ //           {
+ //               Vector3 velocity = myBody.velocity;
+ //               velocity.x = head.transform.forward.x;
+ //               velocity.z = head.transform.forward.z;
+ //               myBody.velocity = velocity;
+ //           }
+ //           else
+ //           {
+ //               myBody.velocity = Vector3.zero;
+ //           }
 
-            if (Input.GetButtonUp("Fire1"))
-            {
-                moving = false;
-            }
+ //           if (Input.GetButtonUp("Fire1"))
+ //           {
+ //               moving = false;
+ //           }
 
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                CmdPlaceBeacon();
-            }
-        }
+ //           if (Input.GetKeyDown(KeyCode.Space))
+ //           {
+ //               CmdPlaceBeacon();
+ //           }
+ //       }
 
     }
 
@@ -153,7 +153,7 @@ public class PlayerController : NetworkBehaviour
             CmdGetColor();
         }
 
-        beaconText = GameObject.Find("Beacon").GetComponent<Text>();    
+//        beaconText = GameObject.Find("Beacon").GetComponent<Text>();    
 
         EventTrigger trigger2 = unpauseText.GetComponent<EventTrigger>();
         EventTrigger.Entry entry2 = new EventTrigger.Entry();
