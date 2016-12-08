@@ -189,11 +189,13 @@ public class PlayerController : NetworkBehaviour
 	void Start() {
 
         GM = GameObject.Find("GameMaster").GetComponent<GameMaster>();
-        transform.Translate(0, 0, 0);
+		//Changed this to make the player collide with the floor
+        //transform.Translate(0, 0.5f, 0);
+		transform.Translate(0, -0.1f, 0);
 		if (GM.serverPlayer == 0)
 			GM.serverPlayer = netId.Value;
 		if (IsServerPlayer()) {
-			transform.Translate (4.0f, 10.0f, 4.0f);
+			transform.position = new Vector3(4.0f, 14.0f, 4.0f);
 			transform.Rotate(90.0f * Vector3.right);
 		}
 		beacons = new List<GameObject> {null, null, null, null, null};
