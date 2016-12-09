@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections;
 
 public class Multidoor : Activatable {
-	public float raiseHeight = 1.0f, raiseSpeed = 0.02f;
+	public float raiseHeight = 8.0f, raiseSpeed = 0.02f;
 	private float currentHeight = 0;
-	private bool raising = false;
+	public bool raising = false;
 	public int numSwitches;
 	private Renderer mRender;
-	private int switchesDown = 0;
+	[SyncVar]
+	public int switchesDown = 0;
 	// Use this for initialization
 	void Start () {
 		SetRenderer ();
@@ -36,7 +38,6 @@ public class Multidoor : Activatable {
 
 	public override void PositiveSignal () {
 		switchesDown++;
-
 		DoorCheck ();
 	}
 
@@ -49,6 +50,13 @@ public class Multidoor : Activatable {
 		if (numSwitches <= switchesDown) {
 			raising = true;
 			mRender.material.color = Color.blue;
+			/*
+			GameObject[] playerList = GameObject.FindGameObjectsWithTag ("Player");
+			foreach (GameObject player in playerList) {
+				player.GetComponent<PlayerController> ().RpcInstantiateWinUI ();
+			}
+			*/
+			//GameObject.FindGameObjectWithTag ("WinUI").SetActive (true);
 		} else {
 			raising = false;
 		}

@@ -20,6 +20,11 @@ public class Exit : Activatable {
 
 	public override void PositiveSignal () {
 		// End the game
+		// Call InstantiateWinUI for each player
+		Debug.Log("Positive signal on exit");
+		mRender.material.color = Color.black;
+		GameMaster gm = GameObject.Find("GameMaster").GetComponent<GameMaster>();
+		gm.hasWon = true;
 	}
 
 	public override void NegativeSignal () {

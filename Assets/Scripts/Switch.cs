@@ -8,7 +8,7 @@ public class Switch : MonoBehaviour {
 	private Renderer mRender;
 	// Use this for initialization
 	void Start () {
-		
+		SetRenderer ();
 	}
 	
 	// Update is called once per frame
@@ -22,6 +22,7 @@ public class Switch : MonoBehaviour {
 	}
 
 	public void StepOn() {
+		Debug.Log ("Stepped on " + this.name);
 		Press ();
 	}
 
@@ -48,8 +49,12 @@ public class Switch : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider col) {
+		Debug.Log ("Something entered the switch");
 		if (col.gameObject.tag == "Player") {
+			Debug.Log ("It was a player!");
 			StepOn ();
+			// This sound doesn't work for some reason
+			//col.gameObject.transform.FindChild("Switch Sound").GetComponent<AudioSource>().Play ();
 		}
 	}
 

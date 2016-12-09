@@ -38,6 +38,9 @@ public class GameMaster : NetworkBehaviour
 	public static Stack<int[]> path;
 	public static List<int[]> dead_ends;
 
+	[SyncVar]
+	public bool hasWon = false;
+
 	public override void OnStartServer ()
 	{
 		paused = false;
@@ -96,8 +99,7 @@ public class GameMaster : NetworkBehaviour
 		dead_ends = new List<int[]> ();
 		for (int i = 0; i < size_x; i++) {
 			for (int j = 0; j < size_z; j++) {
-				if (i != START_X && j != START_Z && i != END_X
-				    && j != END_Z && maze [i] [j].wall_count == 3) {
+				if ((i != START_X || j != START_Z) && maze [i] [j].wall_count == 3) {
 					int[] cell = new int[2];
 					cell [0] = i;
 					cell [1] = j;
@@ -208,16 +210,19 @@ public class GameMaster : NetworkBehaviour
 		doorCube.transform.position
 			= new Vector3 (tilePos.x, 0.5f, tilePos.z);
 		exitCell = maze [dead_ends [numDeadEnds - 1] [0]] [dead_ends [numDeadEnds - 1] [1]];
-		exitCell.gameObject.AddComponent<Exit> ();
+		GameObject exitFloor = exitCell.floor;
+		exitFloor.gameObject.AddComponent<Switch> ().connection = exitFloor.gameObject.AddComponent<Exit> ();
 		Debug.Log ("Put exit at dead end " + (numDeadEnds - 1));
 		NetworkServer.Spawn (doorCube);
-		Multidoor door = doorCube.gameObject.AddComponent<Multidoor> ();
+		//Multidoor door = doorCube.gameObject.AddComponent<Multidoor> ();
+		Multidoor door = doorCube.GetComponent<Multidoor>();
 		door.numSwitches = numDeadEnds - 1;
 		for (int i = 0; i < numDeadEnds - 1; i++) {
 			// Need to set the switch component's activatable object to the single multidoor
 			// that is above the exit.
 			Debug.Log ("Switch at dead end " + i);
 			Switch thisSwitch = maze [dead_ends [i] [0]] [dead_ends [i] [1]].floor.gameObject.AddComponent<Switch> ();
+
 			thisSwitch.connection = door;
 			// Have to set the renderer after attaching the switch script
 			thisSwitch.SetRenderer ();

@@ -16,6 +16,7 @@ public class PlayerController : NetworkBehaviour
     public GvrHead head;
     public GvrReticle reticle;
     public GameMaster GM;
+	public bool hasWon = false;
     Camera cam;
 //    public Canvas canvas;
 //    public Text pauseText;
@@ -30,6 +31,7 @@ public class PlayerController : NetworkBehaviour
 	int numBeacons = 5;
     public Canvas HUD;
     public Canvas UI;
+	public Canvas WinUI;
     Text pauseText;
     Text unpauseText;
     Text quitText;
@@ -44,6 +46,11 @@ public class PlayerController : NetworkBehaviour
         {
             return;
         }
+		if (GM.hasWon && !hasWon) {
+			hasWon = true;
+			Debug.Log ("Instantiate win ui");
+			InstantiateWinUI ();
+		}
 		if (IsServerPlayer ()) {
 			if (Input.GetButtonDown("Fire1"))
 			{
@@ -253,6 +260,18 @@ public class PlayerController : NetworkBehaviour
 			NetworkServer.Spawn(beacon);
 		}
     }
+
+	public void InstantiateWinUI() {
+		Debug.Log ("Checking to instantiate win ui");
+		if (isLocalPlayer) {
+			Debug.Log ("Instantiating win ui");
+			UI.gameObject.SetActive (false);
+			HUD.gameObject.SetActive (false);
+			WinUI = (Canvas)Instantiate (WinUI, body.transform);
+			WinUI.transform.localPosition = new Vector3 (0f, 0f, -100f);
+			WinUI.worldCamera = cam;
+		}
+	}
 
     [Command]
     private void CmdTogglePause()
