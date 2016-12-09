@@ -10,6 +10,7 @@ TagManager:
   - W
   - Floor
   - UI
+  - WinUI
   layers:
   - Default
   - TransparentFX
