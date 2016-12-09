@@ -242,6 +242,10 @@ public class GameMaster : NetworkBehaviour
 		newBeacon.GetComponent<ParticleSystem> ().Play ();
 	}
 
+	public void QuitGame () {
+		Application.Quit ();
+	}
+
 	// Use this for initialization
 	void Start ()
 	{

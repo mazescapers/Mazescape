@@ -305,7 +305,8 @@ public class PlayerController : NetworkBehaviour
 			UI.gameObject.SetActive (false);
 			HUD.gameObject.SetActive (false);
 			WinUI = (Canvas)Instantiate (WinUI, body.transform);
-			WinUI.transform.localPosition = new Vector3 (0f, 0f, -100f);
+			WinUI.transform.localPosition = new Vector3 (0f, 0f, 240f);
+			WinUI.transform.rotation = new Quaternion ();
 			WinUI.worldCamera = cam;
 		}
 	}
