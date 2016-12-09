@@ -48,7 +48,6 @@ public class Switch : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider col) {
-		Debug.Log ("Something entered a switch");
 		if (col.gameObject.tag == "Player") {
 			StepOn ();
 		}

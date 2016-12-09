@@ -132,7 +132,7 @@ public class PlayerController : NetworkBehaviour
     public override void OnStartLocalPlayer()
     {
         GM = GameObject.Find("GameMaster").GetComponent<GameMaster>();
-        transform.Translate(0, 0.5f, 0);
+        transform.Translate(0, 0.58f, 0);
         body = transform.FindChild("Body").gameObject;
 
         head = (GvrHead)Instantiate(head, transform);

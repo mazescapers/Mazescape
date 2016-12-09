@@ -36,6 +36,7 @@ public class Multidoor : Activatable {
 
 	public override void PositiveSignal () {
 		switchesDown++;
+
 		DoorCheck ();
 	}
 

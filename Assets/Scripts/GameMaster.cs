@@ -208,6 +208,7 @@ public class GameMaster : NetworkBehaviour
 		doorCube.transform.position
 			= new Vector3 (tilePos.x, 0.5f, tilePos.z);
 		exitCell = maze [dead_ends [numDeadEnds - 1] [0]] [dead_ends [numDeadEnds - 1] [1]];
+		exitCell.gameObject.AddComponent<Exit> ();
 		Debug.Log ("Put exit at dead end " + (numDeadEnds - 1));
 		NetworkServer.Spawn (doorCube);
 		Multidoor door = doorCube.gameObject.AddComponent<Multidoor> ();
