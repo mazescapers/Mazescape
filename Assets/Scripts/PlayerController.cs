@@ -37,6 +37,7 @@ public class PlayerController : NetworkBehaviour
     Text timeText;
     Text playerText;
     Text switchText;
+    Multidoor door;
 
     bool moving = false;
 
@@ -52,6 +53,11 @@ public class PlayerController : NetworkBehaviour
         playerText.color = cm.getColor(playerNum);
         playerText.text = "Player " + (playerNum + 1);
 
+        if(isServer)
+        {
+            switchText.text = "Switches: " + door.switchesDown + "/" + door.numSwitches;
+        }
+        
                 
 
         float time = GM.time;
@@ -151,7 +157,7 @@ public class PlayerController : NetworkBehaviour
 
     public override void OnStartLocalPlayer()
     {
-        //GM = GameObject.Find("GameMaster").GetComponent<GameMaster>();
+        GM = GameObject.Find("GameMaster").GetComponent<GameMaster>();
         transform.Translate(0, 0.58f, 0);
         body = transform.FindChild("Body").gameObject;
 
@@ -160,8 +166,10 @@ public class PlayerController : NetworkBehaviour
         reticle = (GvrReticle)Instantiate(reticle, head.transform);
         cam = head.transform.FindChild("Camera").GetComponent<Camera>();
 
-	    //canvas = (Canvas)Instantiate(canvas, transform);
+        //canvas = (Canvas)Instantiate(canvas, transform);
         //canvas.worldCamera = cam;
+
+        door = GM.doorCube.GetComponent<Multidoor>();
 
         HUD = (Canvas)Instantiate(HUD, cam.transform);
         HUD.transform.localPosition = new Vector3(0f, 0.1f, 0.5f);
@@ -171,7 +179,7 @@ public class PlayerController : NetworkBehaviour
         timeText.text = "Time:";
         
         switchText = HUD.transform.FindChild("Switches").GetComponent<Text>();
-        switchText.text = "Switches: X/X";
+        switchText.text = "";
 
         UI = (Canvas)Instantiate(UI, body.transform);
         UI.transform.localPosition = new Vector3(0f, 100f, 10f);

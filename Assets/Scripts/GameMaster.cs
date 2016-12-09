@@ -101,8 +101,7 @@ public class GameMaster : NetworkBehaviour
 		dead_ends = new List<int[]> ();
 		for (int i = 0; i < size_x; i++) {
 			for (int j = 0; j < size_z; j++) {
-				if (i != START_X && j != START_Z && i != END_X
-				    && j != END_Z && maze [i] [j].wall_count == 3) {
+				if ((i != START_X || j != START_Z) && maze [i] [j].wall_count == 3) {
 					int[] cell = new int[2];
 					cell [0] = i;
 					cell [1] = j;

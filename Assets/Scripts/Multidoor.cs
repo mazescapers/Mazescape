@@ -7,7 +7,7 @@ public class Multidoor : Activatable {
 	private bool raising = false;
 	public int numSwitches;
 	private Renderer mRender;
-	private int switchesDown = 0;
+	public int switchesDown = 0;
 	// Use this for initialization
 	void Start () {
 		SetRenderer ();
