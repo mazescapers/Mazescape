@@ -20,7 +20,9 @@ public class PlayerController : NetworkBehaviour
 //    public Canvas canvas;
 //    public Text pauseText;
 //    public Text beaconText;
+    [SyncVar]
     public int playerNum;
+
     public bool usingColorManage;
     public ColorManage cm;
 	List<GameObject> beacons;
@@ -69,6 +71,11 @@ public class PlayerController : NetworkBehaviour
         } else
         {
             myBody.velocity = Vector3.zero;
+        }
+
+        if(Input.GetButtonUp("Fire1"))
+        {
+            moving = false;
         }
         Vector3 rotation = body.transform.rotation.eulerAngles;
         rotation.y = head.transform.rotation.eulerAngles.y;
@@ -129,6 +136,7 @@ public class PlayerController : NetworkBehaviour
         body = transform.FindChild("Body").gameObject;
 
         head = (GvrHead)Instantiate(head, transform);
+		//head.transform.Translate (0f, 0.2f, 0f);
         reticle = (GvrReticle)Instantiate(reticle, head.transform);
         cam = head.transform.FindChild("Camera").GetComponent<Camera>();
 
@@ -186,10 +194,13 @@ public class PlayerController : NetworkBehaviour
 	void Start() {
 
         GM = GameObject.Find("GameMaster").GetComponent<GameMaster>();
+		//Changed this to make the player collide with the floor
+        //transform.Translate(0, 0.5f, 0);
+		//transform.Translate(0, -0.1f, 0);
 		if (GM.serverPlayer == 0)
 			GM.serverPlayer = netId.Value;
 		if (IsServerPlayer()) {
-			transform.Translate (4.0f, 10.0f, 4.0f);
+			transform.position = new Vector3(4.0f, 14.0f, 4.0f);
 			transform.Rotate(90.0f * Vector3.right);
 		}
 		beacons = new List<GameObject> {null, null, null, null, null};
