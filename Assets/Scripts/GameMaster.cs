@@ -8,6 +8,9 @@ public class GameMaster : NetworkBehaviour
 	[SyncVar]
 	public bool paused;
 
+    [SyncVar]
+    public float time;
+
 	public int MAZE_LENGTH;
 	public int MAZE_WIDTH;
 	public float WALL_WIDTH;
@@ -48,7 +51,9 @@ public class GameMaster : NetworkBehaviour
 		player_color [1] = Color.blue;
 		player_color [2] = Color.yellow;
 
-		size_x = MAZE_LENGTH;
+        time = 0;
+
+        size_x = MAZE_LENGTH;
 		size_z = MAZE_WIDTH;
 		wall_width = WALL_WIDTH;
 
@@ -240,6 +245,6 @@ public class GameMaster : NetworkBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-	
+        time += Time.deltaTime;
 	}
 }

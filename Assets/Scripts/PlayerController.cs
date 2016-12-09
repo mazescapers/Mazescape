@@ -23,6 +23,7 @@ public class PlayerController : NetworkBehaviour
     [SyncVar]
     public int playerNum;
 
+    bool numcheck;
     public bool usingColorManage;
     public ColorManage cm;
 	List<GameObject> beacons;
@@ -33,18 +34,37 @@ public class PlayerController : NetworkBehaviour
     Text pauseText;
     Text unpauseText;
     Text quitText;
+    Text timeText;
+    Text playerText;
+    Text switchText;
 
     bool moving = false;
 
     // Update is called once per frame
     void Update () {
-        
-	if (!isLocalPlayer || GM == null || GM.paused)
+
+        if (!isLocalPlayer || GM == null || GM.paused)
         //if (!isLocalPlayer || GM == null)
         {
             return;
+        } 
+
+        playerText.color = cm.getColor(playerNum);
+        playerText.text = "Player " + (playerNum + 1);
+
+                
+
+        float time = GM.time;
+        int mins = (int)time / 60;
+        int seconds = (int)time % 60;
+        timeText.text = "Time: " + mins + ":";
+        if (seconds < 10)
+        {
+            timeText.text += "0";
         }
-		if (IsServerPlayer ()) {
+        timeText.text += seconds;
+
+        if (IsServerPlayer ()) {
 			if (Input.GetButtonDown("Fire1"))
 			{
 				CmdPlaceBeacon();
@@ -131,8 +151,8 @@ public class PlayerController : NetworkBehaviour
 
     public override void OnStartLocalPlayer()
     {
-        GM = GameObject.Find("GameMaster").GetComponent<GameMaster>();
-        transform.Translate(0, 0.5f, 0);
+        //GM = GameObject.Find("GameMaster").GetComponent<GameMaster>();
+        transform.Translate(0, 0.58f, 0);
         body = transform.FindChild("Body").gameObject;
 
         head = (GvrHead)Instantiate(head, transform);
@@ -146,6 +166,12 @@ public class PlayerController : NetworkBehaviour
         HUD = (Canvas)Instantiate(HUD, cam.transform);
         HUD.transform.localPosition = new Vector3(0f, 0.1f, 0.5f);
         HUD.worldCamera = cam;
+
+        timeText = HUD.transform.FindChild("Time").GetComponent<Text>();
+        timeText.text = "Time:";
+        
+        switchText = HUD.transform.FindChild("Switches").GetComponent<Text>();
+        switchText.text = "Switches: X/X";
 
         UI = (Canvas)Instantiate(UI, body.transform);
         UI.transform.localPosition = new Vector3(0f, 100f, 10f);
@@ -161,13 +187,17 @@ public class PlayerController : NetworkBehaviour
         entry1.callback.AddListener((data) => { OnPointerClickDelegate((PointerEventData)data); });
         trigger1.triggers.Add(entry1);
 
-
         if (usingColorManage)
         {
+            //cm = GameObject.Find("ColorManager").GetComponent<ColorManage>();
             CmdGetColor();
         }
 
-//        beaconText = GameObject.Find("Beacon").GetComponent<Text>();    
+        //        beaconText = GameObject.Find("Beacon").GetComponent<Text>(); 
+        cm = GameObject.Find("ColorManager").GetComponent<ColorManage>();
+
+        playerText = HUD.transform.FindChild("PlayNum").GetComponent<Text>();
+        numcheck = true;
 
         EventTrigger trigger2 = unpauseText.GetComponent<EventTrigger>();
         EventTrigger.Entry entry2 = new EventTrigger.Entry();
